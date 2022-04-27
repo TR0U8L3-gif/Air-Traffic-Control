@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="initial commit" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/airship/AirShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGRAM GLOWNY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AirTrafficControl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/airtrafficcontrol/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airtrafficcontrol/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distance/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Path.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distance/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distance/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/figure/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Tree.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +35,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28OKb5ntjYBO2IAnR6FPQAvE6VO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -81,9 +100,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/figure" />
@@ -93,10 +120,23 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="airtrafficcontrol.Main" />
-      <module name="PROGRAM GLOWNY" />
+      <module name="AirTrafficControl" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="AirTrafficControl" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="AirTrafficControl" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,6 +156,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651082263762</updated>
       <workItem from="1651082264955" duration="1043000" />
+      <workItem from="1651084425259" duration="8679000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -144,5 +185,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

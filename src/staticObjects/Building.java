@@ -4,8 +4,7 @@ import figure.Cylinder;
 import java.util.Random;
 
 public class Building extends StaticObject {
-    public Building()
-    {
+    public Building() {
         Random rand = new Random();
         int upperbound = 50;
 
@@ -14,15 +13,13 @@ public class Building extends StaticObject {
         this.y = rand.nextInt(upperbound)-25;
         this.hitbox = new Cylinder(rand.nextInt(upperbound/2)+10, rand.nextInt(upperbound*3)+5);
     }
-    public Building(double x, double y, double r, double h)
-    {
+    public Building(double x, double y, double r, double h) {
         this.type = "building";
         this.x = x;
         this.y = y;
         this.hitbox = new Cylinder(r, h);
     }
-    public Building(Building b)
-    {
+    public Building(Building b) {
         this.type = "building";
         this.x = b.x;
         this.y = b.y;

@@ -6,8 +6,8 @@ public class Section {
 	private double speed = 0;
 	private boolean direction = true; 
 	// direction: true->up,  false->down
-	private Point from;
-	private Point to;
+	protected Point from;
+	protected Point to;
 	
 	public Section(Point p1, Point p2){
 		this.from = new Point(p1);
@@ -41,25 +41,19 @@ public class Section {
 		return this.speed;
 	}
 	
-	protected void setDirection()
-	{
-		if(this.from.getX() == this.to.getX())
-		{
-			if(this.from.getY() < this.to.getY())
-			{
+	protected void setDirection() {
+		if(this.from.getX() == this.to.getX()) {
+			if(this.from.getY() < this.to.getY()) {
 				this.direction = true;
 			}
-			else
-			{
+			else {
 				this.direction = false;
 			}
 		}
-		else if(this.from.getX() < this.to.getX())
-		{
+		else if(this.from.getX() < this.to.getX()) {
 			this.direction = true;
 		}
-		else
-		{
+		else {
 			this.direction = false;
 		}
 	}
@@ -79,8 +73,7 @@ public class Section {
 		return this.to;
 	}
 	
-	public String toString()
-	{
+	public String toString() {
 		return " Section:\n " + this.from.toString() +  "\t" + this.to.toString() +
 				"\t height: " + this.height + " speed: " + this.speed + " direction: " + this.direction + "\n";
 	}

@@ -3,14 +3,11 @@ package figure;
 public class Cylinder {
 	private double r;
 	private double h;
-	
-	public Cylinder()
-	{
+	public Cylinder() {
 		this.r = 0;
 		this.h = 0;
 	}
-	public Cylinder(double r, double h)
-	{
+	public Cylinder(double r, double h) {
 		if(r < 0)
 		{
 			r*=-1;
@@ -30,18 +27,14 @@ public class Cylinder {
 	{
 		return this.h;
 	}
-	public void setR(double r)
-	{
-		if(r < 0)
-		{
+	public void setR(double r) {
+		if(r < 0) {
 			r*=-1;
 		}
 		this.r = r;
 	}
-	public void setH(double h)
-	{
-		if(h < 0)
-		{
+	public void setH(double h) {
+		if(h < 0) {
 			h*=-1;
 		}
 		this.h = h;

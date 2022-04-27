@@ -9,12 +9,11 @@ import staticObjects.*;
 public class Main {
 
     public static void main(String[] args) {
-		/*
-		try (Scanner sc = new Scanner(System.in))
-		{
+
+		try (Scanner sc = new Scanner(System.in)) {
 			Path fly = new Path();
 
-			System.out.println("input base fligth path:");
+			System.out.println("input base flight path:");
 			System.out.println("input point1 x and y:");
 
 			int x1 =  sc.nextInt();
@@ -31,8 +30,7 @@ public class Main {
 
 			System.out.println(fly.toString());
 
-			while(true)
-			{
+			for (int i = 0; i < 3; i++) {
 				System.out.println("input next point of the trip x and y:");
 
 				int x3 =  sc.nextInt();
@@ -40,13 +38,29 @@ public class Main {
 				Point p3 = new Point(x3,y3);
 
 				fly.addPoint(p3);
-
+			}
+			System.out.println(fly.toString());
+//			removing section
+//			for (int i = 0; i < 3; i++) {
+//				System.out.println("input index of deleted section:");
+//
+//				int index =  sc.nextInt();
+//				fly.removeSection(index);
+//				System.out.println(fly.toString());
+//			}
+//			removing point
+			for (int i = 0; i < 4; i++) {
+				System.out.println("input x and y of deleted point:");
+				int x =  sc.nextInt();
+				int y =  sc.nextInt();
+				fly.removePoint(new Point(x,y));
 				System.out.println(fly.toString());
 			}
 		}
+
+
 		/*
 
-		 */
 		List<StaticObject> staticObjects = new ArrayList<StaticObject>();
 		Random rand = new Random();
 		while(true)
@@ -70,7 +84,6 @@ public class Main {
 			}
 		}
 
-
+		*/
     }
-
 }
