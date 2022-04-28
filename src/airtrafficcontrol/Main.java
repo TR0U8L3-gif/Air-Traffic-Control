@@ -3,6 +3,7 @@ package airtrafficcontrol;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import Swing.MyFrame;
 import distance.*;
 import staticObjects.*;
 
@@ -85,5 +86,9 @@ public class Main {
 		}
 
 		*/
+        /*
+		new MyFrame();
+
+         */
     }
 }
