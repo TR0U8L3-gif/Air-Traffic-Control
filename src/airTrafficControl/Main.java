@@ -88,6 +88,6 @@ public class Main {
 
 		*/
 
-		new MyFrame();
+        new StartPage();
     }
 }
