@@ -1,16 +1,17 @@
-package airtrafficcontrol;
+package airTrafficControl;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-import Swing.MyFrame;
 import distance.*;
-import staticObjects.*;
+import airship.*;
+import swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
+		/*
 		try (Scanner sc = new Scanner(System.in)) {
 			Path fly = new Path();
 
@@ -58,7 +59,7 @@ public class Main {
 				System.out.println(fly.toString());
 			}
 		}
-
+		*/
 
 		/*
 
@@ -86,9 +87,7 @@ public class Main {
 		}
 
 		*/
-        /*
-		new MyFrame();
 
-         */
+		new MyFrame();
     }
 }

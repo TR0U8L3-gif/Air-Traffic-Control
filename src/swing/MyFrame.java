@@ -1,4 +1,4 @@
-package Swing;
+package swing;
 
 import javax.swing.*;
 import javax.swing.border.Border;

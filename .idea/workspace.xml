@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Swing/MyFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Swing/grid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Swing/grid2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Swing/image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airtrafficcontrol/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airtrafficcontrol/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Swing/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/grid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/airtrafficcontrol/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airTrafficControl/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,9 +86,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Swing" />
@@ -100,23 +102,10 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="airtrafficcontrol.Main" />
+      <option name="MAIN_CLASS_NAME" value="airTrafficControl.Main" />
       <module name="AirTrafficControl" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="AirTrafficControl" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AirTrafficControl" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,6 +126,8 @@
       <updated>1651082263762</updated>
       <workItem from="1651082264955" duration="1043000" />
       <workItem from="1651131745705" duration="9218000" />
+      <workItem from="1651235887847" duration="192000" />
+      <workItem from="1651236109353" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
