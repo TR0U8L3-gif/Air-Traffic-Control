@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import distance.*;
 import airship.*;
+import staticObjects.StaticObject;
 import swing.*;
 
 public class Main {
@@ -61,9 +62,10 @@ public class Main {
 		}
 		*/
 
-		/*
 
-		List<StaticObject> staticObjects = new ArrayList<StaticObject>();
+        /*
+		List<StaticObject> staticObjectsList = new ArrayList<StaticObject>();
+
 		Random rand = new Random();
 		while(true)
 		{

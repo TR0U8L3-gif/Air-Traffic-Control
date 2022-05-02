@@ -1,5 +1,8 @@
 package swing;
 
+import staticObjects.Building;
+import staticObjects.Tree;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -15,6 +18,10 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel label4d;
     JLabel label4e;
     JProgressBar progressBar;
+    JButton button1;
+    JButton button2;
+    JButton button3;
+    JButton button4;
 
     public MyFrame() {
 
@@ -62,7 +69,7 @@ public class MyFrame extends JFrame implements ActionListener {
         comboBox = new JComboBox(cars);
         comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
         comboBox.addActionListener(this);
-        comboBox.setBounds(70,30,160,50);
+        comboBox.setBounds(70,10,160,50);
 
         JLabel label4 = new JLabel();
         label4.setLayout(null);
@@ -100,7 +107,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         label4.setBackground(new Color(57,75,85,255));
         label4.setOpaque(true);
-        label4.setBounds(30,140,240,350);
+        label4.setBounds(30,75,240,350);
 
         label4.add(label4a);
         label4.add(label4b);
@@ -109,11 +116,34 @@ public class MyFrame extends JFrame implements ActionListener {
         label4.add(label4e);
         label4.add(progressBar);
 
+        button1 = new JButton("ADD OBJECT");
+        button2 = new JButton("REMOVE OBJECT");
+
+        button1.setBounds(25, 500,120,50);
+        button2.setBounds(160, 500,120,50);
+
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+
+        button3 = new JButton("ADD AIRSHIP");
+        button4 = new JButton("REMOVE AIRSHIP");
+
+        button3.setBounds(25, 440,120,50);
+        button4.setBounds(160, 440,120,50);
+
+        button3.addActionListener(this);
+        button4.addActionListener(this);
+
         panel1.add(label1);
         panel2.add(label2);
         panel4.add(label3, BorderLayout.LINE_END);
         panel3.add(comboBox);
         panel3.add(label4);
+        panel3.add(button1);
+        panel3.add(button2);
+        panel3.add(button3);
+        panel3.add(button4);
+
 
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.CENTER);
@@ -141,6 +171,19 @@ public class MyFrame extends JFrame implements ActionListener {
                 label4e.setText("PROGRESS BAR: ");
                 progressBar.setValue(30);
             }
+        }
+        if(e.getSource()==button1){
+            String newData = JOptionPane.showInputDialog(" tree/building x y height hitbox\n example: tree 10 10 300 15");
+            String[] newDataArray = newData.split(" ");
+            if(newDataArray[0].equals("tree")){
+                Tree tree = new Tree(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]));
+            }
+
+            else if(newDataArray[0].equals("building")){
+                Building building = new Building(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]));
+            }
+
+
         }
     }
 }
