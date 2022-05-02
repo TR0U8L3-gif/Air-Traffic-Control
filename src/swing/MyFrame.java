@@ -49,7 +49,7 @@ public class MyFrame extends JFrame implements ActionListener {
         label1.setFont(new Font("MV Boli", Font.BOLD, 30));
 
 
-        JLabel label2 = new JLabel(new ImageIcon("/Users/janrydzewski/Desktop/PROGRAM GLOWNY/src/Swing/grid.png"));
+        JLabel label2 = new JLabel(new ImageIcon("src/swing/grid.png"));
         label2.setBounds(0,0,600,600);
 
         JLabel label3 = new JLabel();
@@ -62,7 +62,7 @@ public class MyFrame extends JFrame implements ActionListener {
         comboBox = new JComboBox(cars);
         comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
         comboBox.addActionListener(this);
-        comboBox.setBounds(70,30,160,50);
+        comboBox.setBounds(70,30,160,25);
 
         JLabel label4 = new JLabel();
         label4.setLayout(null);
@@ -75,7 +75,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         progressBar = new JProgressBar();
         progressBar.setValue(30);
-        progressBar.setBounds(20,260,200,50);
+        progressBar.setBounds(20,270,200,25);
         progressBar.setStringPainted(true);
         progressBar.setForeground(Color.white);
 
@@ -143,4 +143,5 @@ public class MyFrame extends JFrame implements ActionListener {
             }
         }
     }
+
 }

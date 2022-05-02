@@ -1,17 +1,37 @@
-package airTrafficControl;
+package main;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-
-import distance.*;
 import airship.*;
+import distance.*;
+import staticObjects.*;
+import radar.*;
 import swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-		/*
+        /*
+        int time = 0; //time in minutes
+        Random rand = new Random();
+        Path fly[] = new Path[3];
+        for (int i =0; i < 3; i++)
+        {
+            for (int j = 0; j<rand.nextInt(3); j++)
+            {
+            int x1 =  rand.nextInt();
+            int y1 =  rand.nextInt();
+            Point p1 = new Point(x1,y1);
+
+            int x2 =  rand.nextInt();
+            int y2 =  rand.nextInt();
+            Point p2 = new Point(x2,y2);
+
+            fly[i].addSection(new Section(p1,p2));
+            }
+        }
+
+
 		try (Scanner sc = new Scanner(System.in)) {
 			Path fly = new Path();
 
