@@ -107,7 +107,11 @@ public class Main {
 		}
 
 		*/
-
-        new StartPage();
+        Radar radar = new Radar();
+        radar.renderShips();
+        radar.renderStaticObjects();
+        radar.showShips();
+        radar.showStaticObjects();
+        new StartPage(radar);
     }
 }

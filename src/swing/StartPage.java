@@ -1,5 +1,6 @@
 package swing;
 
+import radar.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +13,10 @@ public class StartPage extends JFrame implements ActionListener {
     JFileChooser fileChooser;
     JLabel label2;
 
-        public StartPage(){
+    Radar radar;
+
+        public StartPage(Radar radar){
+            this.radar = radar;
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setSize(900,700);
             this.setResizable(false);
@@ -55,7 +59,7 @@ public class StartPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
             if(e.getSource()==button){
                 this.dispose();
-                new MyFrame();
+                new MyFrame(this.radar);
             }
             if(e.getSource()==button2){
                 fileChooser = new JFileChooser();

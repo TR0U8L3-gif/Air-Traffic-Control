@@ -3,21 +3,30 @@ package radar;
 import java.util.*;
 import airship.*;
 import distance.*;
+import figure.Cylinder;
 import staticObjects.*;
 
 public class Radar {
-    public int time = 0;
-    public List<StaticObject> staticObjects = new ArrayList<>();
-    public List<AirShip> ships = new ArrayList<>();
+    protected int time = 0;
+    protected List<StaticObject> staticObjects = new ArrayList<>();
+    protected List<AirShip> ships = new ArrayList<>();
 
     public void setTime(int time) { this.time = time; }
     public int getTime() { return this.time; }
 
     public int countStaticObjects() { return this.staticObjects.size(); }
+    public void showStaticObjects()
+    {
+        System.out.println("static objects: ");
+        for (int i =0; i <staticObjects.size(); i++ )
+        {
+            System.out.println(staticObjects.get(i));
+        }
+    }
     public void renderStaticObjects()
     {
         Random rand = new Random();
-        for (int i = 0; i<=rand.nextInt(7); i++)
+        for (int i = 0; i<=rand.nextInt(5)+1; i++)
         {
             if(rand.nextBoolean())
             {
@@ -27,7 +36,6 @@ public class Radar {
             {
                 this.staticObjects.add(new Building());
             }
-            System.out.println(staticObjects.get(i).toString());
         }
     }
     public void renderStaticObjects(int x)
@@ -66,7 +74,67 @@ public class Radar {
     }
 
     public int countShips() { return this.ships.size(); }
+    public void showShips()
+    {
+        System.out.println("ships: ");
+        for (int i =0; i <ships.size(); i++ )
+        {
+            System.out.println(this.ships.get(i));
+        }
+    }
+    public void renderShips()
+    {
+        Random rand = new Random();
+        for (int i = 0; i<=rand.nextInt(5) + 1; i++)
+        {
+            Path fly = new Path();
+            do
+            {
+                int x1 =  rand.nextInt(51)-25;
+                int y1 =  rand.nextInt(51)-25;
+                Point p1 = new Point(x1,y1);
 
+                int x2 =  rand.nextInt(51)-25;
+                int y2 =  rand.nextInt(51)-25;
+                Point p2 = new Point(x2,y2);
+                Section section = new Section(p1,p2);
+                section.setHeight(rand.nextInt(101)*100);
+                section.setSpeed(rand.nextInt(291)+10);
+                fly.addSection(section);
+            }
+            while (rand.nextBoolean());
+            AirShip ship = new AirShip(new Cylinder(rand.nextInt(7)+5, rand.nextInt(5)+1),fly);
+            ships.add(ship);
+        }
+    }
+    public void renderShips(int x)
+    {
+        Random rand = new Random();
+        for (int i = 0; i < x; i++)
+        {
+            Path fly = new Path();
+            do
+            {
+                int x1 =  rand.nextInt(51)-25;
+                int y1 =  rand.nextInt(51)-25;
+                Point p1 = new Point(x1,y1);
 
-
+                int x2 =  rand.nextInt(51)-25;
+                int y2 =  rand.nextInt(51)-25;
+                Point p2 = new Point(x2,y2);
+                Section section = new Section(p1,p2);
+                section.setHeight(rand.nextInt(101)*100);
+                section.setSpeed(rand.nextInt(291)+10);
+                fly.addSection(section);
+            }
+            while (rand.nextBoolean());
+            AirShip ship = new AirShip(new Cylinder(rand.nextInt(7)+5, rand.nextInt(5)+1),fly);
+            ships.add(ship);
+        }
+    }
+    public void clearShips() { this.ships.clear(); }
+    public void addShip(AirShip s){ this.ships.add(s); }
+    public void addShip(Balloon s){ this.ships.add(s); }
+    public void addShip(Helicopter s){ this.ships.add(s); }
+    public void addShip(Plane s){ this.ships.add(s); }
 }

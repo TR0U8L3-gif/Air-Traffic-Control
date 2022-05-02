@@ -1,6 +1,7 @@
 package swing;
 
 import staticObjects.*;
+import radar.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -20,9 +21,11 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button2;
     JButton button3;
     JButton button4;
+    Radar radar;
 
-    public MyFrame() {
+    public MyFrame(Radar radar) {
 
+        this.radar = radar;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout(4,4));
         this.setSize(900,700);
@@ -174,12 +177,13 @@ public class MyFrame extends JFrame implements ActionListener {
             String newData = JOptionPane.showInputDialog(" tree/building x y height hitbox\n example: tree 10 10 300 15");
             String[] newDataArray = newData.split(" ");
             if(newDataArray[0].equals("tree")){
-                Tree tree = new Tree(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]));
+                radar.addTree(new Tree(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[2]), Double.parseDouble(newDataArray[3]), Double.parseDouble(newDataArray[4])));
             }
 
             else if(newDataArray[0].equals("building")){
-                Building building = new Building(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[1]));
+                radar.addBuilding(new Building(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[2]), Double.parseDouble(newDataArray[3]), Double.parseDouble(newDataArray[4])));
             }
+            radar.showStaticObjects();
         }
     }
 }
