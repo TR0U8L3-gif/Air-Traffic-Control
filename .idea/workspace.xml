@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="new classes extending AirShip + implementing Radar">
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="add objects, airships">
+      <change afterPath="$PROJECT_DIR$/src/swing/buildingicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swing/treeicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radar/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
     </list>
@@ -95,13 +100,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/swing" />
       <recent name="$PROJECT_DIR$/src/Swing" />
       <recent name="$PROJECT_DIR$/src/figure" />
       <recent name="$PROJECT_DIR$/src/distance" />
@@ -137,6 +142,7 @@
       <workItem from="1651259455236" duration="130000" />
       <workItem from="1651513983423" duration="801000" />
       <workItem from="1651516537680" duration="4407000" />
+      <workItem from="1651578752562" duration="5353000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>

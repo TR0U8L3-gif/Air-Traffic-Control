@@ -10,11 +10,16 @@ public class Tree extends StaticObject {
         int upperbound = 100;
 
         this.type = "tree";
+        /*
         this.x = rand.nextInt(upperbound)-50;
         this.y = rand.nextInt(upperbound)-50;
+
+         */
+        this.x = 1 + (int)(Math.random() * 550);
+        this.y = 1 + (int)(Math.random() * 550);
         this.hitbox = new Cylinder(rand.nextInt(upperbound/5)+2, rand.nextInt(upperbound/2)+3);
     }
-    public Tree(double x, double y, double r, double h) {
+    public Tree(int x, int y, double r, double h) {
         this.type = "tree";
         this.x = x;
         this.y = y;

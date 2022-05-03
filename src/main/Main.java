@@ -113,5 +113,9 @@ public class Main {
         radar.showShips();
         radar.showStaticObjects();
         new StartPage(radar);
+
+
+
+
     }
 }

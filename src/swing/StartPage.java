@@ -52,6 +52,7 @@ public class StartPage extends JFrame implements ActionListener {
             this.add(button);
             this.add(button2);
 
+
             this.setVisible(true);
         }
 

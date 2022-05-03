@@ -5,11 +5,14 @@ import airship.*;
 import distance.*;
 import figure.Cylinder;
 import staticObjects.*;
+import swing.MyFrame;
+
+import javax.swing.*;
 
 public class Radar {
-    protected int time = 0;
-    protected List<StaticObject> staticObjects = new ArrayList<>();
-    protected List<AirShip> ships = new ArrayList<>();
+    public int time = 0;
+    public List<StaticObject> staticObjects = new ArrayList<>();
+    public List<AirShip> ships = new ArrayList<>();
 
     public void setTime(int time) { this.time = time; }
     public int getTime() { return this.time; }
@@ -21,7 +24,12 @@ public class Radar {
         for (int i =0; i <staticObjects.size(); i++ )
         {
             System.out.println(staticObjects.get(i));
+            System.out.println(staticObjects.get(i).getX());
+            System.out.println(staticObjects.get(i).getY());
+
+
         }
+
     }
     public void renderStaticObjects()
     {

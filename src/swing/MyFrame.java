@@ -22,6 +22,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button3;
     JButton button4;
     Radar radar;
+    public static JPanel panel2;
+
 
     public MyFrame(Radar radar) {
 
@@ -34,7 +36,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
 
         JPanel panel1 = new JPanel();
-        JPanel panel2 = new JPanel();
+        panel2 = new JPanel();
         JPanel panel3 = new JPanel();
         JPanel panel4 = new JPanel(new BorderLayout());
         panel2.setLayout(null);
@@ -136,7 +138,6 @@ public class MyFrame extends JFrame implements ActionListener {
         button4.addActionListener(this);
 
         panel1.add(label1);
-        panel2.add(label2);
         panel4.add(label3, BorderLayout.LINE_END);
         panel3.add(comboBox);
         panel3.add(label4);
@@ -152,6 +153,23 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(panel4, BorderLayout.SOUTH);
 
 
+        for (int i =0; i <radar.staticObjects.size(); i++ )
+        {
+            if (radar.staticObjects.get(i).getType().equals("tree")){
+            JLabel label = new JLabel(new ImageIcon("src/swing/treeicon.png"));
+            label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+            panel2.add(label);
+            }
+
+            else if(radar.staticObjects.get(i).getType().equals("building")){
+            JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon.png"));
+            label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+            panel2.add(label);
+            }
+        }
+
+
+        panel2.add(label2);
         this.setVisible(true);
 
     }
@@ -177,11 +195,11 @@ public class MyFrame extends JFrame implements ActionListener {
             String newData = JOptionPane.showInputDialog(" tree/building x y height hitbox\n example: tree 10 10 300 15");
             String[] newDataArray = newData.split(" ");
             if(newDataArray[0].equals("tree")){
-                radar.addTree(new Tree(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[2]), Double.parseDouble(newDataArray[3]), Double.parseDouble(newDataArray[4])));
+                radar.addTree(new Tree(Integer.parseInt(newDataArray[1]), Integer.parseInt(newDataArray[2]), Integer.parseInt(newDataArray[3]), Integer.parseInt(newDataArray[4])));
             }
 
             else if(newDataArray[0].equals("building")){
-                radar.addBuilding(new Building(Double.parseDouble(newDataArray[1]), Double.parseDouble(newDataArray[2]), Double.parseDouble(newDataArray[3]), Double.parseDouble(newDataArray[4])));
+                radar.addBuilding(new Building(Integer.parseInt(newDataArray[1]), Integer.parseInt(newDataArray[2]), Integer.parseInt(newDataArray[3]), Integer.parseInt(newDataArray[4])));
             }
             radar.showStaticObjects();
         }

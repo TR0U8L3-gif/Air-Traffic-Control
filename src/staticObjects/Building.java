@@ -9,11 +9,16 @@ public class Building extends StaticObject {
         int upperbound = 50;
 
         this.type = "building";
+        /*
         this.x = rand.nextInt(upperbound)-25;
         this.y = rand.nextInt(upperbound)-25;
+
+         */
+        this.x = 1 + (int)(Math.random() * 550);
+        this.y = 1 + (int)(Math.random() * 550);
         this.hitbox = new Cylinder(rand.nextInt(upperbound/2)+10, rand.nextInt(upperbound*3)+5);
     }
-    public Building(double x, double y, double r, double h) {
+    public Building(int x, int y, double r, double h) {
         this.type = "building";
         this.x = x;
         this.y = y;
