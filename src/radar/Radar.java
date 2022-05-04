@@ -18,17 +18,18 @@ public class Radar {
     public int getTime() { return this.time; }
 
     public int countStaticObjects() { return this.staticObjects.size(); }
-    public void showStaticObjects()
+    public String showStaticObjects()
     {
+        String msg = "Static Objects: \n";
         System.out.println("static objects: ");
         for (int i =0; i <staticObjects.size(); i++ )
         {
+            msg += (i+1)+") " + staticObjects.get(i).toString()+"\n";
             System.out.println(staticObjects.get(i));
-            System.out.println(staticObjects.get(i).getX());
-            System.out.println(staticObjects.get(i).getY());
-
-
+            //System.out.println(staticObjects.get(i).getX());
+            //System.out.println(staticObjects.get(i).getY());
         }
+        return msg;
 
     }
     public void renderStaticObjects()

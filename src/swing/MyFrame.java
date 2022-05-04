@@ -24,6 +24,8 @@ public class MyFrame extends JFrame implements ActionListener {
     Radar radar;
     public JPanel panel2;
     JLabel label2;
+    JPanel panel4;
+    JTextField textField;
 
     public MyFrame(Radar radar) {
 
@@ -38,9 +40,10 @@ public class MyFrame extends JFrame implements ActionListener {
         JPanel panel1 = new JPanel();
         panel2 = new JPanel();
         JPanel panel3 = new JPanel();
-        JPanel panel4 = new JPanel(new BorderLayout());
+        panel4 = new JPanel();
         panel2.setLayout(null);
         panel3.setLayout(null);
+        panel4.setLayout(null);
 
         panel1.setBackground(new Color(57,75,85,255));
         panel2.setBackground(new Color(66,88,112));
@@ -63,9 +66,14 @@ public class MyFrame extends JFrame implements ActionListener {
         label2.setBounds(0,0,600,600);
 
         JLabel label3 = new JLabel();
-        label3.setText("Authors: J.Rydzewski, R.Sienkiewicz, A.Stefanowski    ");
+        label3.setText("Authors: J.Rydzewski, R.Sienkiewicz, A.Stefanowski");
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        label3.setBounds(550,0,400,30);
+
+        textField = new JTextField("  TIME");
+        textField.setBounds(50,0,150,40);
+        panel4.add(textField);
 
         String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
 
@@ -138,7 +146,7 @@ public class MyFrame extends JFrame implements ActionListener {
         button4.addActionListener(this);
 
         panel1.add(label1);
-        panel4.add(label3, BorderLayout.LINE_END);
+        panel4.add(label3);
         panel3.add(comboBox);
         panel3.add(label4);
         panel3.add(button1);
@@ -161,13 +169,13 @@ public class MyFrame extends JFrame implements ActionListener {
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/treeicon.png"));
-                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 2* (int)radar.staticObjects.get(i).getRadius(),2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
 
             else if(radar.staticObjects.get(i).getType().equals("building")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon.png"));
-                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(),2* (int)radar.staticObjects.get(i).getRadius(), 2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
         }
@@ -205,6 +213,14 @@ public class MyFrame extends JFrame implements ActionListener {
             }
             radar.showStaticObjects();
             updateStaticObjects();
+        }
+        if(e.getSource()==button2){
+            String someText = radar.showStaticObjects();
+            String index = JOptionPane.showInputDialog(someText);
+            //System.out.println(index);
+            radar.removeStaticObject(Integer.parseInt(index)-1);
+            updateStaticObjects();
+
         }
     }
 }
