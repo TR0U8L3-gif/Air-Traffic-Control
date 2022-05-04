@@ -75,12 +75,14 @@ public class MyFrame extends JFrame implements ActionListener {
         textField.setBounds(50,0,150,40);
         panel4.add(textField);
 
-        String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
+        //String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
 
-        comboBox = new JComboBox(cars);
+        comboBox = new JComboBox(radar.ships.toArray());
+        comboBox.insertItemAt("SELECT AIRSHIP", 0);
+        comboBox.setSelectedIndex(0);
         comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
         comboBox.addActionListener(this);
-        comboBox.setBounds(70,30,160,25);
+        comboBox.setBounds(30,30,250,25);
 
         JLabel label4 = new JLabel();
         label4.setLayout(null);
@@ -179,29 +181,6 @@ public class MyFrame extends JFrame implements ActionListener {
                 panel2.add(label);
             }
         }
-        /*
-        for (int i =0; i <radar.ships.size(); i++ )
-        {
-            if (radar.ships.get(i).getName().equals("AirShip")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/shipIcon.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 2* (int)radar.ships.get(i).getRadius(),2* (int)radar.ships.get(i).getRadius());
-                panel2.add(label);
-            }
-            else if (radar.ships.get(i).getName().equals("Balloon")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/shipIcon.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 2* (int)radar.ships.get(i).getRadius(),2* (int)radar.ships.get(i).getRadius());                panel2.add(label);
-            }
-            else if (radar.ships.get(i).getName().equals("Helicopter")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/shipIcon.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 2* (int)radar.ships.get(i).getRadius(),2* (int)radar.ships.get(i).getRadius());                panel2.add(label);
-            }
-            else if (radar.ships.get(i).getName().equals("Plane")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/shipIcon.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 2* (int)radar.ships.get(i).getRadius(),2* (int)radar.ships.get(i).getRadius());                panel2.add(label);
-            }
-        }
-
-         */
 
 
         panel2.add(label2);
@@ -213,19 +192,12 @@ public class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
-            if(comboBox.getSelectedItem()=="bmw"){
-                label4b.setText("TO: przeciez to nie jezdzi");
-                label4c.setText("HEIGHT: 2m under the water");
-                progressBar.setValue(0);
-            }
-            else{
                 label4a.setText("FROM: ---------");
                 label4b.setText("TO: ---------");
                 label4c.setText("HEIGHT: ---------");
                 label4d.setText("SPEED: ---------");
                 label4e.setText("PROGRESS BAR: ");
                 progressBar.setValue(30);
-            }
         }
         if(e.getSource()==button1){
             String newData = JOptionPane.showInputDialog(" tree/building x y height hitbox\n example: tree 10 10 300 15");
