@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="add objects, airships">
-      <change afterPath="$PROJECT_DIR$/src/swing/buildingicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swing/treeicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radar/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -22,8 +22,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button3;
     JButton button4;
     Radar radar;
-    public static JPanel panel2;
-
+    public JPanel panel2;
+    JLabel label2;
 
     public MyFrame(Radar radar) {
 
@@ -59,7 +59,7 @@ public class MyFrame extends JFrame implements ActionListener {
         label1.setFont(new Font("MV Boli", Font.BOLD, 30));
 
 
-        JLabel label2 = new JLabel(new ImageIcon("src/swing/grid.png"));
+        label2 = new JLabel(new ImageIcon("src/swing/grid.png"));
         label2.setBounds(0,0,600,600);
 
         JLabel label3 = new JLabel();
@@ -152,28 +152,30 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(panel3, BorderLayout.EAST);
         this.add(panel4, BorderLayout.SOUTH);
 
-
+        updateStaticObjects();
+    }
+    public void updateStaticObjects()
+    {
+        panel2.removeAll();
         for (int i =0; i <radar.staticObjects.size(); i++ )
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
-            JLabel label = new JLabel(new ImageIcon("src/swing/treeicon.png"));
-            label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
-            panel2.add(label);
+                JLabel label = new JLabel(new ImageIcon("src/swing/treeicon.png"));
+                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+                panel2.add(label);
             }
 
             else if(radar.staticObjects.get(i).getType().equals("building")){
-            JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon.png"));
-            label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
-            panel2.add(label);
+                JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon.png"));
+                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 15, 15);
+                panel2.add(label);
             }
         }
-
-
         panel2.add(label2);
+        panel2.revalidate();
+        panel2.repaint();
         this.setVisible(true);
-
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
@@ -202,6 +204,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 radar.addBuilding(new Building(Integer.parseInt(newDataArray[1]), Integer.parseInt(newDataArray[2]), Integer.parseInt(newDataArray[3]), Integer.parseInt(newDataArray[4])));
             }
             radar.showStaticObjects();
+            updateStaticObjects();
         }
     }
 }
