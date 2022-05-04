@@ -99,12 +99,12 @@ public class Radar {
             Path fly = new Path();
             do
             {
-                int x1 =  rand.nextInt(51)-25;
-                int y1 =  rand.nextInt(51)-25;
+                int x1 =  rand.nextInt(51);
+                int y1 =  rand.nextInt(51);
                 Point p1 = new Point(x1,y1);
 
-                int x2 =  rand.nextInt(51)-25;
-                int y2 =  rand.nextInt(51)-25;
+                int x2 =  rand.nextInt(51);
+                int y2 =  rand.nextInt(51);
                 Point p2 = new Point(x2,y2);
                 Section section = new Section(p1,p2);
                 section.setHeight(rand.nextInt(101)*100);
@@ -124,12 +124,12 @@ public class Radar {
             Path fly = new Path();
             do
             {
-                int x1 =  rand.nextInt(51)-25;
-                int y1 =  rand.nextInt(51)-25;
+                int x1 =  rand.nextInt(51);
+                int y1 =  rand.nextInt(51);
                 Point p1 = new Point(x1,y1);
 
-                int x2 =  rand.nextInt(51)-25;
-                int y2 =  rand.nextInt(51)-25;
+                int x2 =  rand.nextInt(51);
+                int y2 =  rand.nextInt(51);
                 Point p2 = new Point(x2,y2);
                 Section section = new Section(p1,p2);
                 section.setHeight(rand.nextInt(101)*100);

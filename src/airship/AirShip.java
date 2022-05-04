@@ -8,6 +8,7 @@ public class AirShip {
     protected Cylinder hitbox;
     protected Path airPath;
     protected int startTime;
+    protected String type;
     protected double x;
     protected double y;
 
@@ -29,6 +30,7 @@ public class AirShip {
     public double getRadius() { return this.hitbox.getR(); }
     public double getFlightHeight() { return 0; }
     public double getFlightSpeed() { return 0; }
+    public String getType() {return this.type;}
     public String getName(){ return this.name; }
 
     public void move(double time)
