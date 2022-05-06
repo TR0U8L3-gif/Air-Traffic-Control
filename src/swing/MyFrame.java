@@ -181,6 +181,31 @@ public class MyFrame extends JFrame implements ActionListener {
                 panel2.add(label);
             }
         }
+        for (int i =0; i <radar.ships.size(); i++ )
+        {
+            if (radar.ships.get(i).getName().equals("AirShip")){
+                JLabel label = new JLabel(new ImageIcon("src/swing/ufo.png"));
+                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                panel2.add(label);
+            }
+
+            else if (radar.ships.get(i).getName().equals("Balloon")){
+                JLabel label = new JLabel(new ImageIcon("src/swing/balloon.png"));
+                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(),3* (int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
+                panel2.add(label);
+            }
+            else if (radar.ships.get(i).getName().equals("Helicopter")){
+                JLabel label = new JLabel(new ImageIcon("src/swing/helicopter.png"));
+                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3*(int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
+                panel2.add(label);
+            }
+            else if (radar.ships.get(i).getName().equals("Plane")){
+                JLabel label = new JLabel(new ImageIcon("src/swing/plane.png"));
+                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(),3* (int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
+                panel2.add(label);
+            }
+        }
+
 
 
         panel2.add(label2);

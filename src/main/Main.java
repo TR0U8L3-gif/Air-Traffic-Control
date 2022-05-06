@@ -113,7 +113,8 @@ public class Main {
         radar.showShips();
         radar.showStaticObjects();
         new StartPage(radar);
-
+        System.out.println(radar.ships.get(0).getX());
+        System.out.println(radar.ships.get(0).getY());
 
 
 
