@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="update comboBox">
-      <change afterPath="$PROJECT_DIR$/src/swing/balloon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swing/helicopter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swing/plane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swing/ufo.png" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="wczytywanie statków powietrznych z pliku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/shipIcon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,9 +94,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alber\eclipse-workspace\Air-Traffic-Control" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/swing" />
       <recent name="$PROJECT_DIR$/src/Swing" />
@@ -141,11 +139,6 @@
       <workItem from="1651513983423" duration="801000" />
       <workItem from="1651516537680" duration="4407000" />
       <workItem from="1651578752562" duration="5353000" />
-      <workItem from="1651669857903" duration="883000" />
-      <workItem from="1651671878782" duration="197000" />
-      <workItem from="1651679467500" duration="879000" />
-      <workItem from="1651697471802" duration="79000" />
-      <workItem from="1651821988163" duration="1269000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -161,28 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651252946585</updated>
     </task>
-    <task id="LOCAL-00003" summary="add/remove staticObjects in gui">
-      <created>1651669287602</created>
+    <task id="LOCAL-00003" summary="wczytywanie statków powietrznych z pliku">
+      <created>1651872954415</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1651669287602</updated>
+      <updated>1651872954415</updated>
     </task>
-    <task id="LOCAL-00004" summary="add/remove staticObjects in gui/2">
-      <created>1651670767136</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1651670767137</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update comboBox">
-      <created>1651680335806</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1651680335806</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,9 +181,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="initial gui2 + update gui1" />
-    <MESSAGE value="add/remove staticObjects in gui" />
-    <MESSAGE value="add/remove staticObjects in gui/2" />
-    <MESSAGE value="update comboBox" />
-    <option name="LAST_COMMIT_MESSAGE" value="update comboBox" />
+    <MESSAGE value="wczytywanie statków powietrznych z pliku" />
+    <option name="LAST_COMMIT_MESSAGE" value="wczytywanie statków powietrznych z pliku" />
   </component>
 </project>

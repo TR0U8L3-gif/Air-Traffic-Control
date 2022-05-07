@@ -1,7 +1,6 @@
 package distance;
 
 public class Section {
-	
 	private double height = 0;
 	private double speed = 0;
 	private boolean direction = true; 

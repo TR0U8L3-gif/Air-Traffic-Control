@@ -4,10 +4,7 @@ import java.util.*;
 
 public class Path {
 	public List<Section> flightPath = new ArrayList<Section>();
-	public Path()
-	{
-		flightPath.clear();
-	}
+	public Path() { }
 	public Path(Path pat)
 	{
 		flightPath.addAll(pat.flightPath);

@@ -1,10 +1,13 @@
 package swing;
 
+import airship.AirShip;
 import radar.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class StartPage extends JFrame implements ActionListener {
 
@@ -58,16 +61,21 @@ public class StartPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            if(e.getSource()==button){
+            if (e.getSource() == button){
                 this.dispose();
                 new MyFrame(this.radar);
             }
-            if(e.getSource()==button2){
+            if (e.getSource() == button2){
                 fileChooser = new JFileChooser();
                 fileChooser.showOpenDialog(null);
-                String filename=fileChooser.getSelectedFile().getName();
-                label2.setText("SELECTED: " + filename);
-
+                File file = fileChooser.getSelectedFile();
+                label2.setText("SELECTED: " + file.getName());
+                try {
+                    java.util.List<AirShip> airShips = ReadFromFile.readAirShips(file);
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                    // TODO: Wyswietlic komunikat o niepowodzeniu wczytywania pliku
+                }
             }
     }
 }

@@ -3,7 +3,7 @@ package airship;
 import distance.Path;
 import figure.Cylinder;
 
-public class Helicopter extends AirShip{
+public class Helicopter extends AirShip {
     public Helicopter(Cylinder hitbox, Path airPath) {
         super(hitbox, airPath);
         super.name = this.getClass().getSimpleName();
