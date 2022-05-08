@@ -6,17 +6,11 @@ import java.util.Random;
 public class Building extends StaticObject {
     public Building() {
         Random rand = new Random();
-        int upperbound = 50;
-
+        int bound = 500;
         this.type = "building";
-        /*
-        this.x = rand.nextInt(upperbound)-25;
-        this.y = rand.nextInt(upperbound)-25;
-
-         */
-        this.x = 1 + (int)(Math.random() * 550);
-        this.y = 1 + (int)(Math.random() * 550);
-        this.hitbox = new Cylinder(rand.nextInt(upperbound/2)+10, rand.nextInt(upperbound*3)+5);
+        this.x = rand.nextInt(bound);
+        this.y = rand.nextInt(bound);
+        this.hitbox = new Cylinder(rand.nextInt(bound/35)+15, rand.nextInt(bound/10)+15);
     }
     public Building(int x, int y, double r, double h) {
         this.type = "building";

@@ -7,9 +7,11 @@ public class Plane extends AirShip{
     public Plane(Cylinder hitbox, Path airPath) {
         super(hitbox, airPath);
         super.name = this.getClass().getSimpleName();
+        super.move(0);
     }
     public Plane(Cylinder hitbox, Path airPath, int startTime ) {
         super(hitbox, airPath, startTime);
         super.name = this.getClass().getSimpleName();
+        super.move(0);
     }
 }

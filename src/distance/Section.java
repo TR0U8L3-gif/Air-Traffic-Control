@@ -1,22 +1,37 @@
 package distance;
 
+import java.util.Random;
+
 public class Section {
-	private double height = 0;
-	private double speed = 0;
-	private boolean direction = true; 
+	protected double height;
+	protected double speed;
+	protected boolean direction = true;
 	// direction: true->up,  false->down
 	protected Point from;
 	protected Point to;
 	
 	public Section(Point p1, Point p2){
+		Random rand = new Random();
 		this.from = new Point(p1);
 		this.to = new Point(p2);
+		this.height = ((double)rand.nextInt(101)*65+15);
+		this.speed = ((double)rand.nextInt(5) + 1);
+		this.setDirection();
+	}
+	public Section(Point p1, Point p2, double height, double speed){
+		Random rand = new Random();
+		this.from = new Point(p1);
+		this.to = new Point(p2);
+		this.height = height;
+		this.speed = speed;
 		this.setDirection();
 	}
 	
 	public Section(Section s){
 		this.from = new Point(s.from);
 		this.to = new Point(s.to);
+		this.height = s.height;
+		this.speed = s.speed;
 		this.setDirection();
 	}
 	

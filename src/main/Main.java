@@ -108,9 +108,23 @@ public class Main {
 
 		*/
         Radar radar = new Radar();
-
+        radar.renderShips();
+        radar.renderStaticObjects();
+        radar.showShips();
+//        radar.showStaticObjects();
+        Scanner sc = new Scanner(System.in);
         new StartPage(radar);
+        do
+        {
+            System.out.print("Set time: ");
+            radar.setTime(sc.nextInt());
+            System.out.println("time: " + radar.getTime());
+            radar.showShips();
+        }
+        while (true);
 
+//        System.out.println(radar.ships.get(0).getX());
+//        System.out.println(radar.ships.get(0).getY());
 
 
 

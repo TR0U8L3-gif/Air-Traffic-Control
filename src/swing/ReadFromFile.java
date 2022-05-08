@@ -64,7 +64,6 @@ public class ReadFromFile {
                     break;
             }
             airShip.setName(name);
-            airShip.setType(type);
             airShips.add(airShip);
         }
         return airShips;
