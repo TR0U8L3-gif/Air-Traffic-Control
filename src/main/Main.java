@@ -9,7 +9,7 @@ import swing.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /*
         int time = 0; //time in minutes
@@ -108,12 +108,15 @@ public class Main {
 
 		*/
         Radar radar = new Radar();
-        radar.renderTestShips();
-        radar.renderStaticObjects();
-        radar.showShips();
-//        radar.showStaticObjects();
+
+        //radar.renderTestShips();
+        //radar.renderStaticObjects();
+        //radar.showShips();
+
+        //radar.showStaticObjects();
         Scanner sc = new Scanner(System.in);
         new StartPage(radar);
+/*
         do
         {
             System.out.print("Set time: ");
@@ -133,10 +136,25 @@ public class Main {
         }
         while (true);
 
-//        System.out.println(radar.ships.get(0).getX());
-//        System.out.println(radar.ships.get(0).getY());
+            //System.out.println(radar.ships.get(0).getX());
+            //System.out.println(radar.ships.get(0).getY());
 
 
+
+ */
+        /*
+        while(radar.time<=100){
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            radar.time += 1;
+
+        }
+
+
+         */
 
     }
 }

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class MyFrame extends JFrame implements ActionListener {
 
@@ -22,12 +23,15 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button2;
     JButton button3;
     JButton button4;
+    JButton button5;
+    JButton button6;
     Radar radar;
     public JPanel panel2;
     JLabel label2;
     JPanel panel4;
     JTextField textField;
     ArrayList<JLabel> labelList = new ArrayList<JLabel>();
+    ArrayList<JLabel> pinList = new ArrayList<JLabel>();
 
 
     public MyFrame(Radar radar) {
@@ -44,6 +48,7 @@ public class MyFrame extends JFrame implements ActionListener {
         panel2 = new JPanel();
         JPanel panel3 = new JPanel();
         panel4 = new JPanel();
+        panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
         panel4.setLayout(null);
@@ -63,6 +68,13 @@ public class MyFrame extends JFrame implements ActionListener {
         label1.setText("AIR TRAFFIC CONTROL");
         label1.setForeground(Color.white);
         label1.setFont(new Font("MV Boli", Font.BOLD, 30));
+        label1.setBounds(270,0,500,50);
+
+        button5 = new JButton("RESET");
+        panel4.add(button5);
+        button5.setBounds(10,6,80,25);
+        button5.addActionListener(this);
+
 
 
         label2 = new JLabel(new ImageIcon("src/swing/img/grid.png"));
@@ -74,9 +86,14 @@ public class MyFrame extends JFrame implements ActionListener {
         label3.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label3.setBounds(550,0,400,30);
 
-        textField = new JTextField("  TIME");
-        textField.setBounds(50,0,150,40);
+        textField = new JTextField("INPUT TIME");
+        textField.setBounds(210,5,150,30);
         panel4.add(textField);
+
+        button6 = new JButton("APPLY");
+        button6.setBounds(370,5,100,30);
+        panel4.add(button6);
+        button6.addActionListener(this);
 
         //String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
 
@@ -208,6 +225,13 @@ public class MyFrame extends JFrame implements ActionListener {
                 panel2.add(label);
             }
         }
+        if(pinList.size()>0){
+            for(int i=0; i < pinList.size(); i++){
+                panel2.add(pinList.get(i));
+                System.out.println(pinList.get(i));
+
+            }
+        }
 
         panel2.add(label2);
         panel2.revalidate();
@@ -215,18 +239,36 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
             int selectedItem = comboBox.getSelectedIndex();
             if(selectedItem != 0)
             {
+                pinList.clear();
                 label4a.setText("FROM: X: " + radar.ships.get(selectedItem-1).airPath.flightPath.get(0).getStartPoint().getX()+ " Y: " + radar.ships.get(selectedItem-1).airPath.flightPath.get(0).getStartPoint().getY());
                 label4b.setText("TO: X: " + radar.ships.get(selectedItem-1).airPath.flightPath.get(radar.ships.get(selectedItem-1).airPath.flightPath.size()-1).getEndPoint().getX() + " Y: " + radar.ships.get(selectedItem-1).airPath.flightPath.get(radar.ships.get(selectedItem-1).airPath.flightPath.size()-1).getEndPoint().getY());
                 label4c.setText("HEIGHT: " + radar.ships.get(selectedItem-1).getCurrentHeight());
                 label4d.setText("SPEED: " + radar.ships.get(selectedItem-1).getCurrentSpeed());
                 label4e.setText("PROGRESS BAR: ");
-                progressBar.setValue(30);
+                if(radar.getTime()==0){
+                    progressBar.setValue(0);
+                }
+                else{
+                    progressBar.setValue(5);
+                }
+                for(int i=0; i<radar.ships.get(selectedItem-1).airPath.flightPath.size();i=i+2){
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                    pinList.get(i).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
+                    pinList.get(i+1).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
+                }
+                updateMap();
+
+
+
             }
             else
             {
@@ -235,7 +277,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 label4c.setText("HEIGHT: ---------");
                 label4d.setText("SPEED:  ---------");
                 label4e.setText("PROGRESS BAR: ");
-                progressBar.setValue(30);
+                progressBar.setValue(0);
             }
         }
         if(e.getSource()==button1){
@@ -266,6 +308,23 @@ public class MyFrame extends JFrame implements ActionListener {
             //radar.removeStaticObject(Integer.parseInt(index)-1);
             updateMap();
 
+        }
+        if(e.getSource()==button5){
+            this.dispose();
+            radar.staticObjects.clear();
+            radar.ships.clear();
+            radar.setTime(0);
+
+            new StartPage(radar);
+        }
+        if(e.getSource()==button6){
+            double newTime = Double.parseDouble(textField.getText());
+            radar.setTime(newTime);
+            for(int i=0; i<radar.ships.size(); i++){
+                radar.ships.get(i).move(radar.time);
+            }
+            System.out.println(radar.getTime());
+            updateMap();
         }
     }
 }

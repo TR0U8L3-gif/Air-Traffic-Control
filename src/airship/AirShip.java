@@ -56,6 +56,7 @@ public class AirShip {
         {
             double remainingTime = time - (double)this.startTime;
             int pathIndex = 0;
+            System.out.println("=================================");
             do
             {
                 Point start = airPath.flightPath.get(pathIndex).getStartPoint();
@@ -86,6 +87,7 @@ public class AirShip {
                         double x2 = (sqrt + v) / ((a * a) + 1);
                         System.out.println("x1: " + x1 + " x2: " + x2);
                         // math is hard :(
+                        //i feel your pain :C
                         if (airPath.flightPath.get(pathIndex).getDirection())
                         {
                             this.x = x2;
