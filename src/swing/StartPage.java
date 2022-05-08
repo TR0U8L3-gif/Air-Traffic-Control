@@ -117,8 +117,7 @@ public class StartPage extends JFrame implements ActionListener {
                  */
             }
             if (e.getSource()==button4){
-                //radar.renderShips();
-                radar.renderShip(1);
+                radar.renderShips();
                 button2.setEnabled(false);
                 label2.setText("SELECTED: AUTO");
                 radar.showShips();

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="first steps in navigating ships + MyFrame selected ship fix">
-      <change afterPath="$PROJECT_DIR$/src/swing/img/redPin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/AirShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/AirShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="moving airships, update comboBox, textfield of time">
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/grid.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652018366719</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="moving airships, update comboBox, textfield of time">
+      <created>1652044741945</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652044741945</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +213,8 @@
     <MESSAGE value="initial gui2 + update gui1" />
     <MESSAGE value="wczytywanie statków powietrznych z pliku" />
     <MESSAGE value="first steps in navigating ships + MyFrame selected ship fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="first steps in navigating ships + MyFrame selected ship fix" />
+    <MESSAGE value="moving airships, update comboBox, textfield of time" />
+    <option name="LAST_COMMIT_MESSAGE" value="moving airships, update comboBox, textfield of time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
