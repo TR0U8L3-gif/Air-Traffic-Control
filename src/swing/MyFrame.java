@@ -259,16 +259,12 @@ public class MyFrame extends JFrame implements ActionListener {
                 else{
                     progressBar.setValue(5);
                 }
-                for(int i=0; i<radar.ships.get(selectedItem-1).airPath.flightPath.size();i=i+2){
+                for(int i=0; i<radar.ships.get(selectedItem-1).airPath.flightPath.size(); i+=2){
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
                     pinList.get(i).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
                     pinList.get(i+1).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
                 }
-                updateMap();
-
-
-
             }
             else
             {
@@ -277,8 +273,10 @@ public class MyFrame extends JFrame implements ActionListener {
                 label4c.setText("HEIGHT: ---------");
                 label4d.setText("SPEED:  ---------");
                 label4e.setText("PROGRESS BAR: ");
+                pinList.clear();
                 progressBar.setValue(0);
             }
+            updateMap();
         }
         if(e.getSource()==button1){
             String newData = JOptionPane.showInputDialog(" tree/building x y radius height\n example: tree 100 150 30 15");
@@ -319,12 +317,15 @@ public class MyFrame extends JFrame implements ActionListener {
         }
         if(e.getSource()==button6){
             double newTime = Double.parseDouble(textField.getText());
-            radar.setTime(newTime);
-            for(int i=0; i<radar.ships.size(); i++){
-                radar.ships.get(i).move(radar.time);
+            if(newTime >= 0)
+            {
+                radar.setTime(newTime);
+                for (int i = 0; i < radar.ships.size(); i++) {
+                    radar.ships.get(i).move(radar.getTime());
+                }
+                System.out.println(radar.getTime());
+                updateMap();
             }
-            System.out.println(radar.getTime());
-            updateMap();
         }
     }
 }

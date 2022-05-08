@@ -140,5 +140,5 @@ public class AirShip {
             while (true);
         }
     }
-    public String toString(){ return this.name +" [" + (airPath.flightPath.size()-1)+ "] (" + x + ", " + y + ")  h:" + this.hitbox.getH() + ", r:" + this.hitbox.getR() + ", start time: " + this.startTime; }
+    public String toString(){ return this.name +" [" + (airPath.flightPath.size()-1)+ "] (" + (int)x + ", " + (int)y + ")"; }
 }

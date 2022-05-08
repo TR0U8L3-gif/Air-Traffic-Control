@@ -17,10 +17,6 @@ public class Radar {
     public void setTime(double time)
     {
         this.time = time;
-        for (int i = 0; i < ships.size(); i++)
-        {
-            ships.get(i).move(this.time);
-        }
     }
     public double getTime() { return this.time; }
 
