@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="wczytywanie statków powietrznych z pliku">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="first steps in navigating ships + MyFrame selected ship fix">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/airship/AirShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/AirShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Balloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/Balloon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Section.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radar/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ReadFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadFromFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/balloon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/balloon1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/buildingicon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/buildingicon1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/grid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/helicopter1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/helicopter1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/plane1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/plane1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/treeicon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/treeicon1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ufo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/ufo1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +145,7 @@
       <workItem from="1651513983423" duration="801000" />
       <workItem from="1651516537680" duration="4407000" />
       <workItem from="1651578752562" duration="5353000" />
-      <workItem from="1652004389774" duration="12444000" />
+      <workItem from="1652004389774" duration="22001000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -183,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651872954415</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="first steps in navigating ships + MyFrame selected ship fix">
+      <created>1652018366719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652018366719</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +208,17 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="initial gui2 + update gui1" />
     <MESSAGE value="wczytywanie statków powietrznych z pliku" />
-    <option name="LAST_COMMIT_MESSAGE" value="wczytywanie statków powietrznych z pliku" />
+    <MESSAGE value="first steps in navigating ships + MyFrame selected ship fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="first steps in navigating ships + MyFrame selected ship fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

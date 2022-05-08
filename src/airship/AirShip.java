@@ -37,11 +37,11 @@ public class AirShip {
     public void setName(String name) { this.name = name; }
     public void move(double time)
     {
-        if (time <= startTime)
+        if (time <= (double)startTime)
         {
             this.x = airPath.flightPath.get(0).getStartPoint().getX();
             this.y = airPath.flightPath.get(0).getStartPoint().getY();
-            if(time == startTime)
+            if(time == (double)startTime)
             {
                 this.currentHeight = airPath.flightPath.get(0).getHeight();
                 this.currentSpeed = airPath.flightPath.get(0).getSpeed();
@@ -54,7 +54,7 @@ public class AirShip {
         }
         else
         {
-            double remainingTime = time - this.startTime;
+            double remainingTime = time - (double)this.startTime;
             int pathIndex = 0;
             do
             {
@@ -63,19 +63,60 @@ public class AirShip {
                 double speed = airPath.flightPath.get(pathIndex).getSpeed();
                 double distance = Math.sqrt(Math.pow(end.getY() - start.getY(), 2) + Math.pow(end.getX() - start.getX(), 2));
                 double pathTime = distance / speed;
-                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " time: " + pathTime);
+                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " total time: " + pathTime);
                 if(remainingTime - pathTime <= 0)
                 {
-                    double distanceToTravel = speed * remainingTime;
-                    //line equation y=ax+b
-                    double a = (end.getY() - start.getY())/(end.getX() - start.getX());
-                    double b = start.getY() - (a * start.getX());
-                    //circle equation (x-Sx)^2 + (y-Sy)^2 = r^2
-                    double x1;
-                    double x2;
-                    // math is hard :(
-                    this.x = 0;
-                    this.y = 0;
+
+                    System.out.println("remainingTime: " + remainingTime);
+                    double r = speed * remainingTime;
+                    System.out.println("distance to go: " + r);
+                    if(start.getX()!=end.getX())
+                    {
+                        //line equation y=ax+b
+                        double a = (end.getY() - start.getY()) / (end.getX() - start.getX());
+                        double b = start.getY() - (a * start.getX());
+                        System.out.println("line equation: y=" + a + "x+" + b);
+                        //circle equation (x-Sx)^2 + (y-Sy)^2 = r^2
+                        double p = start.getX();
+                        double q = start.getY();
+                        System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
+                        double sqrt = Math.sqrt((-1 * a * a * p * p) + (a * a * r * r) - (2 * a * b * p) + (2 * a * p * q) - (b * b) + (2 * b * q) - (q * q) + (r * r));
+                        double v = (-1 * a * b) + (a * q) + p;
+                        double x1 = (-1 * sqrt + v) / ((a * a) + 1);
+                        double x2 = (sqrt + v) / ((a * a) + 1);
+                        System.out.println("x1: " + x1 + " x2: " + x2);
+                        // math is hard :(
+                        if (airPath.flightPath.get(pathIndex).getDirection())
+                        {
+                            this.x = x2;
+                        } else {
+                            this.x = x1;
+                        }
+                        this.y = a * this.x + b;
+                    }
+                    else
+                    {
+                        //line equation x=ay+b
+                        double a = (end.getX() - start.getX()) / (end.getY() - start.getY());
+                        double b = start.getX() - (a * start.getY());
+                        System.out.println("line equation: x=" + a + "y+" + b);
+                        //circle equation (x-Sx)^2 + (y-Sy)^2 = r^2
+                        double p = start.getY();
+                        double q = start.getX();
+                        System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
+                        double sqrt = Math.sqrt((-1 * a * a * p * p) + (a * a * r * r) - (2 * a * b * p) + (2 * a * p * q) - (b * b) + (2 * b * q) - (q * q) + (r * r));
+                        double v = (-1 * a * b) + (a * q) + p;
+                        double y1 = (-1 * sqrt + v) / ((a * a) + 1);
+                        double y2 = (sqrt + v) / ((a * a) + 1);
+                        System.out.println("y1: " + y1 + " y2: " + y2);
+                        if (airPath.flightPath.get(pathIndex).getDirection())
+                        {
+                            this.y = y2;
+                        } else {
+                            this.y = y1;
+                        }
+                        this.x = a * this.y + b;
+                    }
                     this.currentHeight = airPath.flightPath.get(pathIndex).getHeight();
                     this.currentSpeed = airPath.flightPath.get(pathIndex).getSpeed();
                     break;
@@ -97,5 +138,5 @@ public class AirShip {
             while (true);
         }
     }
-    public String toString(){ return this.name + " (" + x + ", " + y + ")  h:" + this.hitbox.getH() + ", r:" + this.hitbox.getR() + ", start time: " + this.startTime; }
+    public String toString(){ return this.name +" [" + (airPath.flightPath.size()-1)+ "] (" + x + ", " + y + ")  h:" + this.hitbox.getH() + ", r:" + this.hitbox.getR() + ", start time: " + this.startTime; }
 }

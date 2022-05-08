@@ -108,7 +108,7 @@ public class Main {
 
 		*/
         Radar radar = new Radar();
-        radar.renderShips();
+        radar.renderTestShips();
         radar.renderStaticObjects();
         radar.showShips();
 //        radar.showStaticObjects();
@@ -117,9 +117,19 @@ public class Main {
         do
         {
             System.out.print("Set time: ");
-            radar.setTime(sc.nextInt());
+            double time = 0;
+            try
+            {
+                time = sc.nextDouble();
+            }
+            catch (Exception e)
+            {
+                time = 0;
+            }
+            radar.setTime(time);
             System.out.println("time: " + radar.getTime());
             radar.showShips();
+
         }
         while (true);
 

@@ -10,11 +10,11 @@ import swing.MyFrame;
 import javax.swing.*;
 
 public class Radar {
-    public int time = 0;
+    public double time = 0;
     public List<StaticObject> staticObjects = new ArrayList<>();
     public List<AirShip> ships = new ArrayList<>();
 
-    public void setTime(int time)
+    public void setTime(double time)
     {
         this.time = time;
         for (int i = 0; i < ships.size(); i++)
@@ -22,7 +22,7 @@ public class Radar {
             ships.get(i).move(this.time);
         }
     }
-    public int getTime() { return this.time; }
+    public double getTime() { return this.time; }
 
     public int countStaticObjects() { return this.staticObjects.size(); }
     public String showStaticObjects()
@@ -100,6 +100,7 @@ public class Radar {
         }
         return msg;
     }
+
     public void renderShips()
     {
         int bound = 401;
@@ -138,11 +139,11 @@ public class Radar {
             ships.add(ship);
         }
     }
-    public void renderShips(int x)
+    public void renderShip(int x)
     {
         int bound = 401;
         Random rand = new Random();
-        for (int i = 0; i < x; i++)
+        for (int i = 0; i <= x; i++)
         {
             Path fly = new Path();
             do
@@ -155,8 +156,6 @@ public class Radar {
                 int y2 =  rand.nextInt(bound);
                 Point p2 = new Point(x2,y2);
                 Section section = new Section(p1,p2);
-                section.setHeight(rand.nextInt(101)*65+15);
-                section.setSpeed(rand.nextInt(5)+1);
                 fly.addSection(section);
             }
             while (rand.nextBoolean());
@@ -164,7 +163,7 @@ public class Radar {
             AirShip ship;
             int r = rand.nextInt(11)+15;
             int h = rand.nextInt(5)+1;
-            int starTime = rand.nextInt(120);
+            int starTime = rand.nextInt(3)*60;
             if(rand.nextInt()%5==0)
             {
                 ship = new Balloon(new Cylinder(r,h),fly,starTime);
@@ -177,6 +176,37 @@ public class Radar {
             }
             ships.add(ship);
         }
+    }
+    public void renderTestShips()
+    {
+        Path fly = new Path();
+        Random rand = new Random();
+        int x1 =  10;
+        int y1 =  100;
+        Point p1 = new Point(x1,y1);
+
+        int x2 =  10;
+        int y2 =  10;
+        Point p2 = new Point(x2,y2);
+        Section section = new Section(p1,p2);
+        fly.addSection(section);
+
+        AirShip ship;
+        int r = rand.nextInt(11)+15;
+        int h = rand.nextInt(5)+1;
+        int starTime = rand.nextInt(3)*60;
+        if(rand.nextInt()%5==0)
+        {
+            ship = new Balloon(new Cylinder(r,h),fly,starTime);
+        } else if (rand.nextInt()%4==0) {
+            ship = new Helicopter(new Cylinder(r,h),fly,starTime);
+        } else if (rand.nextInt()%3==0) {
+            ship = new Plane(new Cylinder(r,h),fly,starTime);
+        } else {
+            ship = new AirShip(new Cylinder(r,h),fly,starTime);
+        }
+        ships.add(ship);
+
     }
     public void clearShips() { this.ships.clear(); }
     public void addShip(AirShip s){ this.ships.add(s); }
