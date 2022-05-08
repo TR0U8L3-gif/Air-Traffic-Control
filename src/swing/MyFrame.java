@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MyFrame extends JFrame implements ActionListener {
 
@@ -26,6 +27,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel label2;
     JPanel panel4;
     JTextField textField;
+    ArrayList<JLabel> labelList = new ArrayList<JLabel>();
+
 
     public MyFrame(Radar radar) {
 
@@ -162,21 +165,21 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(panel3, BorderLayout.EAST);
         this.add(panel4, BorderLayout.SOUTH);
 
-        updateStaticObjects();
+        updateMap();
     }
-    public void updateStaticObjects()
+    public void updateMap()
     {
         panel2.removeAll();
         for (int i =0; i <radar.staticObjects.size(); i++ )
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/treeicon.png"));
+                JLabel label = new JLabel(new ImageIcon("src/swing/treeicon1.png"));
                 label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 2* (int)radar.staticObjects.get(i).getRadius(),2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
 
             else if(radar.staticObjects.get(i).getType().equals("building")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon.png"));
+                JLabel label = new JLabel(new ImageIcon("src/swing/buildingicon1.png"));
                 label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(),2* (int)radar.staticObjects.get(i).getRadius(), 2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
@@ -184,25 +187,25 @@ public class MyFrame extends JFrame implements ActionListener {
         for (int i =0; i <radar.ships.size(); i++ )
         {
             if (radar.ships.get(i).getName().equals("AirShip")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/ufo.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
-                panel2.add(label);
+                labelList.add(new JLabel(new ImageIcon("src/swing/ufo1.png")));
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                panel2.add(labelList.get(i));
             }
 
             else if (radar.ships.get(i).getName().equals("Balloon")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/balloon.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(),3* (int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
-                panel2.add(label);
+                labelList.add(new JLabel(new ImageIcon("src/swing/balloon1.png")));
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/helicopter.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3*(int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
-                panel2.add(label);
+                labelList.add(new JLabel(new ImageIcon("src/swing/helicopter1.png")));
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/plane.png"));
-                label.setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(),3* (int)radar.ships.get(i).getRadius(),3*(int)radar.ships.get(i).getRadius());
-                panel2.add(label);
+                labelList.add(new JLabel(new ImageIcon("src/swing/plane1.png")));
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                panel2.add(labelList.get(i));
             }
         }
 
@@ -217,12 +220,14 @@ public class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
-                label4a.setText("FROM: ---------");
-                label4b.setText("TO: ---------");
-                label4c.setText("HEIGHT: ---------");
-                label4d.setText("SPEED: ---------");
-                label4e.setText("PROGRESS BAR: ");
-                progressBar.setValue(30);
+            int selectedItem = comboBox.getSelectedIndex();
+
+            label4a.setText("FROM: X: " + radar.ships.get(selectedItem-1).getX() + " Y: " + radar.ships.get(selectedItem-1).getY());
+            label4b.setText("TO: ---------");
+            label4c.setText("HEIGHT: " + radar.ships.get(selectedItem-1).getHeight());
+            label4d.setText("SPEED: " + radar.ships.get(selectedItem-1).getSpeed());
+            label4e.setText("PROGRESS BAR: ");
+            progressBar.setValue(30);
         }
         if(e.getSource()==button1){
             String newData = JOptionPane.showInputDialog(" tree/building x y height hitbox\n example: tree 10 10 300 15");
@@ -235,14 +240,22 @@ public class MyFrame extends JFrame implements ActionListener {
                 radar.addBuilding(new Building(Integer.parseInt(newDataArray[1]), Integer.parseInt(newDataArray[2]), Integer.parseInt(newDataArray[3]), Integer.parseInt(newDataArray[4])));
             }
             radar.showStaticObjects();
-            updateStaticObjects();
+            updateMap();
         }
         if(e.getSource()==button2){
             String someText = radar.showStaticObjects();
             String index = JOptionPane.showInputDialog(someText);
             //System.out.println(index);
             radar.removeStaticObject(Integer.parseInt(index)-1);
-            updateStaticObjects();
+            updateMap();
+
+        }
+        if(e.getSource()==button4){
+            String someText = radar.showShips();
+            String index = JOptionPane.showInputDialog(someText);
+            //System.out.println(index);
+            //radar.removeStaticObject(Integer.parseInt(index)-1);
+            updateMap();
 
         }
     }

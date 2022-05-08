@@ -83,13 +83,16 @@ public class Radar {
     }
 
     public int countShips() { return this.ships.size(); }
-    public void showShips()
+    public String showShips()
     {
+        String msg = "Airships: \n";
         System.out.println("ships: ");
         for (int i =0; i <ships.size(); i++ )
         {
+            msg += (i+1)+") " + ships.get(i).toString()+"\n";
             System.out.println(this.ships.get(i));
         }
+        return msg;
     }
     public void renderShips()
     {

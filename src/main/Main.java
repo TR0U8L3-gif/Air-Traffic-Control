@@ -108,13 +108,9 @@ public class Main {
 
 		*/
         Radar radar = new Radar();
-        radar.renderShips();
-        radar.renderStaticObjects();
-        radar.showShips();
-        radar.showStaticObjects();
+
         new StartPage(radar);
-        System.out.println(radar.ships.get(0).getX());
-        System.out.println(radar.ships.get(0).getY());
+
 
 
 

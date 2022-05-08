@@ -30,6 +30,7 @@ public class AirShip {
     public double getRadius() { return this.hitbox.getR(); }
     public double getFlightHeight() { return 0; }
     public double getFlightSpeed() { return 0; }
+    public double getSpeed() {return 0;}
     public String getType() { return this.type; }
     public void setType(String type) {
         this.type = type;
