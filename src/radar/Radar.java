@@ -152,6 +152,7 @@ public class Radar {
                 int y2 =  rand.nextInt(bound);
                 Point p2 = new Point(x2,y2);
                 Section section = new Section(p1,p2);
+
                 fly.addSection(section);
             }
             while (rand.nextBoolean());
@@ -159,7 +160,7 @@ public class Radar {
             AirShip ship;
             int r = rand.nextInt(11)+15;
             int h = rand.nextInt(5)+1;
-            int starTime = rand.nextInt(3)*60;
+            int starTime = rand.nextInt(1)*60;
             if(rand.nextInt()%5==0)
             {
                 ship = new Balloon(new Cylinder(r,h),fly,starTime);
@@ -173,29 +174,34 @@ public class Radar {
             ships.add(ship);
         }
     }
-    public void renderTestShips()
+    public void renderTestShip()
     {
         Path fly = new Path();
         Random rand = new Random();
         int x1 =  10;
-        int y1 =  100;
+        int y1 =  10;
         Point p1 = new Point(x1,y1);
 
         int x2 =  10;
-        int y2 =  10;
+        int y2 =  100;
         Point p2 = new Point(x2,y2);
         Section section = new Section(p1,p2);
         fly.addSection(section);
 
-        int x3 =  50;
-        int y3 =  100;
+        int x3 =  100;
+        int y3 =  200;
         Point p3 = new Point(x3,y3);
         fly.addPoint(p3);
+
+        int x4 =  300;
+        int y4 =  300;
+        Point p4 = new Point(x4,y4);
+        fly.addPoint(p4);
 
         AirShip ship;
         int r = rand.nextInt(11)+15;
         int h = rand.nextInt(5)+1;
-        int starTime = rand.nextInt(3)*60;
+        int starTime = rand.nextInt(1)*60;
         if(rand.nextInt()%5==0)
         {
             ship = new Balloon(new Cylinder(r,h),fly,starTime);

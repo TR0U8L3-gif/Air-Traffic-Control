@@ -191,7 +191,7 @@ public class MyFrame extends JFrame implements ActionListener {
         {
             public void run()
             {
-                count[0]+= 0.1;
+                count[0]+= 0.2;
                 radar.time = count[0];
                 MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
                 for (int i = 0; i < radar.ships.size(); i++) {

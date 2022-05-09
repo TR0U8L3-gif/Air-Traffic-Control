@@ -15,7 +15,7 @@ public class Section {
 		this.from = new Point(p1);
 		this.to = new Point(p2);
 		this.height = ((double)rand.nextInt(101)*65+15);
-		this.speed = ((double)rand.nextInt(5) + 1);
+		this.speed = ((double)rand.nextInt(10) + 1);
 		this.setDirection();
 	}
 	public Section(Point p1, Point p2, double height, double speed){

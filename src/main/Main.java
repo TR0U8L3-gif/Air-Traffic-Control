@@ -109,10 +109,10 @@ public class Main {
 		*/
         Radar radar = new Radar();
 
-        //radar.renderTestShips();
-        radar.renderShips(5);
+        //radar.renderTestShip();
+        //radar.renderShips(1);
         //radar.renderStaticObjects();
-        radar.showShips();
+        //radar.showShips();
 
         //radar.showStaticObjects();
         Scanner sc = new Scanner(System.in);
