@@ -135,11 +135,11 @@ public class Radar {
             ships.add(ship);
         }
     }
-    public void renderShip(int x)
+    public void renderShips(int x)
     {
         int bound = 401;
         Random rand = new Random();
-        for (int i = 0; i <= x; i++)
+        for (int i = 0; i < x; i++)
         {
             Path fly = new Path();
             do
@@ -187,6 +187,11 @@ public class Radar {
         Section section = new Section(p1,p2);
         fly.addSection(section);
 
+        int x3 =  50;
+        int y3 =  100;
+        Point p3 = new Point(x3,y3);
+        fly.addPoint(p3);
+
         AirShip ship;
         int r = rand.nextInt(11)+15;
         int h = rand.nextInt(5)+1;
@@ -209,4 +214,5 @@ public class Radar {
     public void addShip(Balloon s){ this.ships.add(s); }
     public void addShip(Helicopter s){ this.ships.add(s); }
     public void addShip(Plane s){ this.ships.add(s); }
+
 }

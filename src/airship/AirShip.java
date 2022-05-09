@@ -7,7 +7,8 @@ public class AirShip {
     protected String name = "AirShip";
     protected Cylinder hitbox;
     public Path airPath;
-    protected int startTime;
+    protected double startTime;
+    protected double flightTime;
     protected double currentHeight;
     protected double currentSpeed;
     protected double x;
@@ -17,13 +18,28 @@ public class AirShip {
         this.airPath = airPath;
         this.hitbox = hitbox;
         this.startTime = 0;
+        setFlightTime();
         move(0);
     }
     public AirShip(Cylinder hitbox, Path airPath, int startTime) {
         this.airPath = airPath;
         this.hitbox = hitbox;
         this.startTime = startTime;
+        setFlightTime();
         move(0);
+    }
+    public double getFlightTime() { return this.flightTime; }
+    public void setFlightTime() {
+        double time = 0;
+        for (int i = 0; i < this.airPath.flightPath.size(); i++)
+        {
+            Point start = this.airPath.flightPath.get(i).getStartPoint();
+            Point end = this.airPath.flightPath.get(i).getEndPoint();
+            double speed = this.airPath.flightPath.get(i).getSpeed();
+            double distance = Math.sqrt(Math.pow(end.getY() - start.getY(), 2) + Math.pow(end.getX() - start.getX(), 2));
+            time += distance / speed;
+        }
+        this.flightTime = time;
     }
     public double getCurrentHeight() { return this.currentHeight; }
     public double getCurrentSpeed() { return this.currentSpeed; }
@@ -31,12 +47,13 @@ public class AirShip {
     public double getY() { return this.y; }
     public double getHeight() { return this.hitbox.getH(); }
     public double getRadius() { return this.hitbox.getR(); }
-    public double getFlightHeight() { return 0; }
-    public double getFlightSpeed() { return 0; }
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
     public void move(double time)
     {
+        System.out.println("=================================");
+        System.out.println("Start time: " + this.startTime);
+        System.out.println("Flight time: " + this.flightTime);
         if (time <= (double)startTime)
         {
             this.x = airPath.flightPath.get(0).getStartPoint().getX();
@@ -56,15 +73,15 @@ public class AirShip {
         {
             double remainingTime = time - (double)this.startTime;
             int pathIndex = 0;
-            //System.out.println("=================================");
+
             do
             {
-                Point start = airPath.flightPath.get(pathIndex).getStartPoint();
-                Point end = airPath.flightPath.get(pathIndex).getEndPoint();
-                double speed = airPath.flightPath.get(pathIndex).getSpeed();
+                Point start = this.airPath.flightPath.get(pathIndex).getStartPoint();
+                Point end = this.airPath.flightPath.get(pathIndex).getEndPoint();
+                double speed = this.airPath.flightPath.get(pathIndex).getSpeed();
                 double distance = Math.sqrt(Math.pow(end.getY() - start.getY(), 2) + Math.pow(end.getX() - start.getX(), 2));
                 double pathTime = distance / speed;
-                //System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " total time: " + pathTime);
+                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " total time: " + pathTime);
                 if(remainingTime - pathTime <= 0)
                 {
 
@@ -128,6 +145,7 @@ public class AirShip {
                     pathIndex++;
                     if(pathIndex > (airPath.flightPath.size() - 1))
                     {
+                        System.out.println("Flight is over");
                         this.x = airPath.flightPath.get(airPath.flightPath.size() - 1).getEndPoint().getX();
                         this.y = airPath.flightPath.get(airPath.flightPath.size() - 1).getEndPoint().getY();
                         this.currentHeight = airPath.flightPath.get(airPath.flightPath.size() - 1).getHeight();

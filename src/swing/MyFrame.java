@@ -185,13 +185,13 @@ public class MyFrame extends JFrame implements ActionListener {
 
         int delay = 10;
         int period = 50;
-        int count[] = {0};
+        double count[] = {0};
         java.util.Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask()
         {
             public void run()
             {
-                count[0]+= 1;
+                count[0]+= 0.1;
                 radar.time = count[0];
                 MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
                 for (int i = 0; i < radar.ships.size(); i++) {
@@ -252,8 +252,6 @@ public class MyFrame extends JFrame implements ActionListener {
         if(pinList.size()>0){
             for(int i=0; i < pinList.size(); i++){
                 panel2.add(pinList.get(i));
-                System.out.println(pinList.get(i));
-
             }
         }
 
@@ -283,12 +281,15 @@ public class MyFrame extends JFrame implements ActionListener {
                 else{
                     progressBar.setValue(5);
                 }
-                for(int i=0; i<radar.ships.get(selectedItem-1).airPath.flightPath.size(); i+=2){
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                for(int i=0; i < radar.ships.get(selectedItem-1).airPath.flightPath.size(); i++){
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
                     pinList.get(i).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
-                    pinList.get(i+1).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
-                }
+                    if(i == radar.ships.get(selectedItem-1).airPath.flightPath.size() - 1)
+                    {
+                        pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                        pinList.get(i+1).setBounds((int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getX(), (int)radar.ships.get(selectedItem-1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
+                    }
+               }
             }
             else
             {
