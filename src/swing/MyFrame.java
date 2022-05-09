@@ -8,10 +8,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class MyFrame extends JFrame implements ActionListener {
 
+    public static JLabel label3;
+    private static int array[];
     JComboBox comboBox;
     JLabel label4a;
     JLabel label4b;
@@ -24,12 +28,13 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button3;
     JButton button4;
     JButton button5;
-    JButton button6;
+
     Radar radar;
     public JPanel panel2;
-    JLabel label2;
+    public JLabel label2;
     JPanel panel4;
-    JTextField textField;
+    public static int[] count = {0};
+
     ArrayList<JLabel> labelList = new ArrayList<JLabel>();
     ArrayList<JLabel> pinList = new ArrayList<JLabel>();
 
@@ -70,6 +75,14 @@ public class MyFrame extends JFrame implements ActionListener {
         label1.setFont(new Font("MV Boli", Font.BOLD, 30));
         label1.setBounds(270,0,500,50);
 
+        label3 = new JLabel();
+        label3.setText("TIME: " + Double.toString(radar.time));
+        label3.setBounds(50,0,200,50);
+        label3.setForeground(Color.white);
+        label3.setFont(new Font("MV Boli", Font.BOLD, 20));
+        panel1.add(label3);
+
+
         button5 = new JButton("RESET");
         panel4.add(button5);
         button5.setBounds(10,6,80,25);
@@ -86,14 +99,7 @@ public class MyFrame extends JFrame implements ActionListener {
         label3.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label3.setBounds(550,0,400,30);
 
-        textField = new JTextField("INPUT TIME");
-        textField.setBounds(210,5,150,30);
-        panel4.add(textField);
 
-        button6 = new JButton("APPLY");
-        button6.setBounds(370,5,100,30);
-        panel4.add(button6);
-        button6.addActionListener(this);
 
         //String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
 
@@ -176,6 +182,24 @@ public class MyFrame extends JFrame implements ActionListener {
         panel3.add(button3);
         panel3.add(button4);
 
+
+        int delay = 10;
+        int period = 50;
+        int count[] = {0};
+        java.util.Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask()
+        {
+            public void run()
+            {
+                count[0]+= 1;
+                radar.time = count[0];
+                MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+                for (int i = 0; i < radar.ships.size(); i++) {
+                    radar.ships.get(i).move(radar.getTime());
+                }
+                updateMap();
+            }
+        }, delay, period);
 
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.CENTER);
@@ -313,19 +337,10 @@ public class MyFrame extends JFrame implements ActionListener {
             radar.ships.clear();
             radar.setTime(0);
 
+
             new StartPage(radar);
         }
-        if(e.getSource()==button6){
-            double newTime = Double.parseDouble(textField.getText());
-            if(newTime >= 0)
-            {
-                radar.setTime(newTime);
-                for (int i = 0; i < radar.ships.size(); i++) {
-                    radar.ships.get(i).move(radar.getTime());
-                }
-                System.out.println(radar.getTime());
-                updateMap();
-            }
-        }
+
+
     }
 }

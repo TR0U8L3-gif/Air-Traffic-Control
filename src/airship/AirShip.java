@@ -56,7 +56,7 @@ public class AirShip {
         {
             double remainingTime = time - (double)this.startTime;
             int pathIndex = 0;
-            System.out.println("=================================");
+            //System.out.println("=================================");
             do
             {
                 Point start = airPath.flightPath.get(pathIndex).getStartPoint();
@@ -64,28 +64,28 @@ public class AirShip {
                 double speed = airPath.flightPath.get(pathIndex).getSpeed();
                 double distance = Math.sqrt(Math.pow(end.getY() - start.getY(), 2) + Math.pow(end.getX() - start.getX(), 2));
                 double pathTime = distance / speed;
-                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " total time: " + pathTime);
+                //System.out.println( this.name + " Path index: [" + pathIndex + "/" + (airPath.flightPath.size()-1)+ "] speed: " + speed + " distance: " + distance + " total time: " + pathTime);
                 if(remainingTime - pathTime <= 0)
                 {
 
-                    System.out.println("remainingTime: " + remainingTime);
+                    //System.out.println("remainingTime: " + remainingTime);
                     double r = speed * remainingTime;
-                    System.out.println("distance to go: " + r);
+                    //System.out.println("distance to go: " + r);
                     if(start.getX()!=end.getX())
                     {
                         //line equation y=ax+b
                         double a = (end.getY() - start.getY()) / (end.getX() - start.getX());
                         double b = start.getY() - (a * start.getX());
-                        System.out.println("line equation: y=" + a + "x+" + b);
+                        //System.out.println("line equation: y=" + a + "x+" + b);
                         //circle equation (x-Sx)^2 + (y-Sy)^2 = r^2
                         double p = start.getX();
                         double q = start.getY();
-                        System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
+                        //System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
                         double sqrt = Math.sqrt((-1 * a * a * p * p) + (a * a * r * r) - (2 * a * b * p) + (2 * a * p * q) - (b * b) + (2 * b * q) - (q * q) + (r * r));
                         double v = (-1 * a * b) + (a * q) + p;
                         double x1 = (-1 * sqrt + v) / ((a * a) + 1);
                         double x2 = (sqrt + v) / ((a * a) + 1);
-                        System.out.println("x1: " + x1 + " x2: " + x2);
+                        //System.out.println("x1: " + x1 + " x2: " + x2);
                         // math is hard :(
                         //i feel your pain :C
                         if (airPath.flightPath.get(pathIndex).getDirection())
@@ -101,16 +101,16 @@ public class AirShip {
                         //line equation x=ay+b
                         double a = (end.getX() - start.getX()) / (end.getY() - start.getY());
                         double b = start.getX() - (a * start.getY());
-                        System.out.println("line equation: x=" + a + "y+" + b);
+                        //System.out.println("line equation: x=" + a + "y+" + b);
                         //circle equation (x-Sx)^2 + (y-Sy)^2 = r^2
                         double p = start.getY();
                         double q = start.getX();
-                        System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
+                        //System.out.println("start point: " + p + " " + q + " end point: " + end.getX() + " " + end.getY());
                         double sqrt = Math.sqrt((-1 * a * a * p * p) + (a * a * r * r) - (2 * a * b * p) + (2 * a * p * q) - (b * b) + (2 * b * q) - (q * q) + (r * r));
                         double v = (-1 * a * b) + (a * q) + p;
                         double y1 = (-1 * sqrt + v) / ((a * a) + 1);
                         double y2 = (sqrt + v) / ((a * a) + 1);
-                        System.out.println("y1: " + y1 + " y2: " + y2);
+                        //System.out.println("y1: " + y1 + " y2: " + y2);
                         if (airPath.flightPath.get(pathIndex).getDirection())
                         {
                             this.y = y2;

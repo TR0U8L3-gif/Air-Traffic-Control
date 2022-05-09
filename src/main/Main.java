@@ -142,19 +142,7 @@ public class Main {
 
 
  */
-        /*
-        while(radar.time<=100){
-            try{
-                Thread.sleep(1000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
-            radar.time += 1;
 
-        }
-
-
-         */
 
     }
 }
