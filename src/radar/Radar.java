@@ -70,6 +70,11 @@ public class Radar {
         if(index>=0 && index<this.staticObjects.size())
             this.staticObjects.remove(index);
     }
+    public void removeAirShips(int index)
+    {
+        if(index>=0 && index<this.ships.size())
+            this.ships.remove(index);
+    }
     public void clearStaticObjects() { this.staticObjects.clear(); }
     public void addTree(Tree tree){ this.staticObjects.add(tree); }
     public void addBuilding(Building build){ this.staticObjects.add(build); }
