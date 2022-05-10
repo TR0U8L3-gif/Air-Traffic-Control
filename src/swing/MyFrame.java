@@ -37,6 +37,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     java.util.Timer timer;
     int delay;
     int period;
+    boolean timerStart = false;
 
     Radar radar;
     public JPanel panel2;
@@ -223,21 +224,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
         delay = 10;
         period = 50;
-        double count[] = {0};
         timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask()
-        {
-            public void run()
-            {
-                count[0]+= 0.5;
-                radar.time = count[0];
-                MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
-                for (int i = 0; i < radar.ships.size(); i++) {
-                    radar.ships.get(i).move(radar.getTime());
-                }
-                updateMap();
-            }
-        }, delay, period);
+        timer();
 
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.CENTER);
@@ -245,6 +233,27 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.add(panel4, BorderLayout.SOUTH);
         
         updateMap();
+    }
+    public void timer()
+    {
+        double count[] = {radar.getTime()};
+        timer.scheduleAtFixedRate(new TimerTask()
+        {
+            public void run()
+            {
+                if(timerStart)
+                {
+                    count[0] = radar.getTime();
+                    count[0]+= 0.5;
+                    radar.setTime(count[0]);
+                    MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+                    for (int i = 0; i < radar.ships.size(); i++) {
+                        radar.ships.get(i).move(radar.getTime());
+                    }
+                    updateMap();
+                }
+            }
+        }, delay, period);
     }
     public void updateMap()
     {
@@ -373,31 +382,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             radar.staticObjects.clear();
             radar.ships.clear();
             radar.setTime(0);
-
-
             new StartPage(radar);
         }
         if(e.getSource()==button7){
-            timer.cancel();
+            timerStart = false;
         }
         if(e.getSource()==button6){
-            double count2[] = {radar.time};
-            Timer timer = new Timer();
-            timer.scheduleAtFixedRate(new TimerTask()
-            {
-                public void run()
-                {
-                    count2[0]+= 0.5;
-                    radar.time = count2[0];
-                    MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
-                    for (int i = 0; i < radar.ships.size(); i++) {
-                        radar.ships.get(i).move(radar.getTime());
-                    }
-                    updateMap();
-                    System.out.println(count2[0]);
-
-                }
-            }, delay, period);
+            timerStart = true;
         }
 
     }
