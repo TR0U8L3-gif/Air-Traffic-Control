@@ -4,6 +4,8 @@ import staticObjects.*;
 import radar.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class MyFrame extends JFrame implements ActionListener {
+public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
     public static JLabel label3;
     private static int array[];
@@ -28,6 +30,12 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton button3;
     JButton button4;
     JButton button5;
+    JSlider slider;
+    JButton button6;
+    JButton button7;
+    java.util.Timer timer;
+    int delay;
+    int period;
 
     Radar radar;
     public JPanel panel2;
@@ -44,7 +52,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.radar = radar;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout(4,4));
-        this.setSize(900,700);
+        this.setSize(1000,700);
         this.setResizable(false);
         this.setTitle("Air Traffic Control");
         this.setLocationRelativeTo(null);
@@ -65,7 +73,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         panel1.setPreferredSize(new Dimension(900,60));
         panel2.setPreferredSize(new Dimension(600,600));
-        panel3.setPreferredSize(new Dimension(300,600));
+        panel3.setPreferredSize(new Dimension(400,600));
         panel4.setPreferredSize(new Dimension(900,40));
 
 
@@ -76,7 +84,8 @@ public class MyFrame extends JFrame implements ActionListener {
         label1.setBounds(270,0,500,50);
 
         label3 = new JLabel();
-        label3.setText("TIME: " + Double.toString(radar.time));
+        //label3.setText("TIME: " + Double.toString((radar.time));
+        label3.setText("TIME: " + String.format("%.2f", radar.time));
         label3.setBounds(50,0,200,50);
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
@@ -182,16 +191,44 @@ public class MyFrame extends JFrame implements ActionListener {
         panel3.add(button3);
         panel3.add(button4);
 
+        slider = new JSlider(0,1000,50);
+        this.add(slider);
+        slider.setBounds(900,180,75,400);
+        slider.setOrientation(SwingConstants.VERTICAL);
+        slider.setMinorTickSpacing(100);
+        slider.setMajorTickSpacing(100);
+        slider.setPaintTicks(true);
+        slider.setPaintTrack(true);
+        slider.setPaintLabels(true);
+        slider.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        slider.setForeground(Color.white);
+        slider.addChangeListener(this);
 
-        int delay = 10;
-        int period = 50;
+        button6 = new JButton("START");
+        button7 = new JButton("STOP");
+        button6.setBounds(900,75,80,30);
+        button7.setBounds(900,105,80,30);
+        this.add(button6);
+        this.add(button7);
+        button7.addActionListener(this);
+        button6.addActionListener(this);
+
+        JLabel label = new JLabel("TIME");
+        label.setFont(new Font("MV Boli", Font.PLAIN, 20));
+        label.setForeground(Color.white);
+        label.setBounds(916,140, 80,26);
+        this.add(label);
+
+
+        delay = 10;
+        period = 50;
         double count[] = {0};
-        java.util.Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask()
         {
             public void run()
             {
-                count[0]+= 0.2;
+                count[0]+= 0.5;
                 radar.time = count[0];
                 MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
                 for (int i = 0; i < radar.ships.size(); i++) {
@@ -341,7 +378,39 @@ public class MyFrame extends JFrame implements ActionListener {
 
             new StartPage(radar);
         }
+        if(e.getSource()==button7){
+            timer.cancel();
+        }
+        if(e.getSource()==button6){
+            double count2[] = {radar.time};
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask()
+            {
+                public void run()
+                {
+                    count2[0]+= 0.5;
+                    radar.time = count2[0];
+                    MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+                    for (int i = 0; i < radar.ships.size(); i++) {
+                        radar.ships.get(i).move(radar.getTime());
+                    }
+                    updateMap();
+                    System.out.println(count2[0]);
 
+                }
+            }, delay, period);
+        }
 
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        radar.setTime(slider.getValue());
+        MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+        for (int i = 0; i < radar.ships.size(); i++) {
+            radar.ships.get(i).move(radar.getTime());
+        }
+        updateMap();
+        System.out.println(radar.getTime());
     }
 }
