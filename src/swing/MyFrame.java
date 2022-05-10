@@ -231,7 +231,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.add(panel2, BorderLayout.CENTER);
         this.add(panel3, BorderLayout.EAST);
         this.add(panel4, BorderLayout.SOUTH);
-        
+
         updateMap();
     }
     public void timer()
@@ -250,6 +250,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                     for (int i = 0; i < radar.ships.size(); i++) {
                         radar.ships.get(i).move(radar.getTime());
                     }
+                    slider.setValue((int)radar.getTime());
                     updateMap();
                 }
             }

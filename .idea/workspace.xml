@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="initial timeSlider">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/AirShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/AirShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radar/Radar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,6 +142,7 @@
       <workItem from="1651578752562" duration="5353000" />
       <workItem from="1652004389774" duration="22550000" />
       <workItem from="1652166608300" duration="5703000" />
+      <workItem from="1652173595269" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
