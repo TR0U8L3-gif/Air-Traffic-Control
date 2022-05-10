@@ -3,8 +3,6 @@ package swing;
 import airship.AirShip;
 import radar.*;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -118,7 +116,8 @@ public class StartPage extends JFrame implements ActionListener {
                  */
         }
         if (e.getSource() == button4) {
-            radar.renderShips();
+            //radar.renderShips();
+            radar.renderShips(1);
             button2.setEnabled(false);
             label2.setText("SELECTED: AUTO");
             radar.showShips();

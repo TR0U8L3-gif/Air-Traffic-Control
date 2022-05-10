@@ -1,10 +1,8 @@
 package swing;
 
-import airship.AirShip;
 import staticObjects.*;
 import radar.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -13,12 +11,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
+
 
 public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
     public static JLabel label3;
-    private static int array[];
     JComboBox comboBox;
     JLabel label4a;
     JLabel label4b;
@@ -223,7 +220,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
 
         delay = 10;
-        period = 50;
+        period = 40;
         timer = new Timer();
         timer();
 
@@ -244,7 +241,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 if(timerStart)
                 {
                     count[0] = radar.getTime();
-                    count[0]+= 0.5;
+                    count[0]+= 0.25;
                     radar.setTime(count[0]);
                     MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
                     for (int i = 0; i < radar.ships.size(); i++) {
@@ -258,7 +255,9 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     }
     public void updateMap()
     {
+
         panel2.removeAll();
+
         for (int i =0; i <radar.ships.size(); i++ )
         {
             if (radar.ships.get(i).getName().equals("AirShip")){
@@ -303,10 +302,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
         }
 
+
         panel2.add(label2);
         panel2.revalidate();
         panel2.repaint();
+
         this.setVisible(true);
+
     }
 
 
@@ -321,11 +323,18 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 label4c.setText("HEIGHT: " + radar.ships.get(selectedItem - 1).getCurrentHeight());
                 label4d.setText("SPEED: " + radar.ships.get(selectedItem - 1).getCurrentSpeed());
                 label4e.setText("PROGRESS BAR: ");
-                if (radar.getTime() == 0) {
+                double progress = ((radar.getTime()-radar.ships.get(selectedItem-1).getStartTime())/radar.ships.get(selectedItem-1).getFlightTime())*100;
+                System.out.println(progress);
+                if (progress <= 0) {
                     progressBar.setValue(0);
-                } else {
-                    progressBar.setValue(5);
                 }
+                else if(progress>100){
+                    progressBar.setValue(100);
+                }
+                else{
+                    progressBar.setValue((int)progress);
+                }
+
                 for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
                     pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);

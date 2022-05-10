@@ -1,9 +1,6 @@
 package main;
 
 import java.util.*;
-import airship.*;
-import distance.*;
-import staticObjects.*;
 import radar.*;
 import swing.*;
 

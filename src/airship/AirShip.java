@@ -28,6 +28,7 @@ public class AirShip {
         setFlightTime();
         move(0);
     }
+    public double getStartTime(){return this.startTime;}
     public double getFlightTime() { return this.flightTime; }
     public void setFlightTime() {
         double time = 0;

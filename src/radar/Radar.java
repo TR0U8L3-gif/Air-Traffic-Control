@@ -5,9 +5,6 @@ import airship.*;
 import distance.*;
 import figure.Cylinder;
 import staticObjects.*;
-import swing.MyFrame;
-
-import javax.swing.*;
 
 public class Radar {
     public double time = 0;
@@ -225,5 +222,8 @@ public class Radar {
     public void addShip(Balloon s){ this.ships.add(s); }
     public void addShip(Helicopter s){ this.ships.add(s); }
     public void addShip(Plane s){ this.ships.add(s); }
+    public boolean isSafeAirShip(AirShip s, AirShip r) {return true;}
+    public boolean isSafeStaticObject(AirShip s, StaticObject r) {return true;}
+
 
 }
