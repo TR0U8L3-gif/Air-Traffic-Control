@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="readstaticobjects alpha">
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="add isSafe alpha">
+      <change afterPath="$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/ReadFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +154,7 @@
       <workItem from="1652189520992" duration="3850000" />
       <workItem from="1652193534127" duration="168000" />
       <workItem from="1652209153322" duration="48000" />
-      <workItem from="1652269381886" duration="1639000" />
+      <workItem from="1652269381886" duration="806000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -218,14 +219,7 @@
       <option name="project" value="LOCAL" />
       <updated>1652193373477</updated>
     </task>
-    <task id="LOCAL-00010" summary="readstaticobjects alpha">
-      <created>1652270280672</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1652270280672</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,8 +264,7 @@
     <MESSAGE value="initial timeSlider" />
     <MESSAGE value="moving slider" />
     <MESSAGE value="add isSafe alpha" />
-    <MESSAGE value="readstaticobjects alpha" />
-    <option name="LAST_COMMIT_MESSAGE" value="readstaticobjects alpha" />
+    <option name="LAST_COMMIT_MESSAGE" value="add isSafe alpha" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
