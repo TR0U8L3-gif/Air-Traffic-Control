@@ -8,16 +8,18 @@ import distance.Path;
 import distance.Point;
 import distance.Section;
 import figure.Cylinder;
+import staticObjects.StaticObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.io.*;
 
-public class ReadFromFile {
-    public static List<AirShip> readAirShips(File file) throws FileNotFoundException {
+public class ReadObjectsFromFile {
+    public static List<StaticObject> readStaticObjects(File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);
-        List<AirShip> airShips = new ArrayList<>();
+        List<StaticObject> staticObjects = new ArrayList<>();
 
         while (input.hasNext()) {
             String name = input.next();
@@ -63,9 +65,9 @@ public class ReadFromFile {
                     airShip = new AirShip(hitbox, new Path());
                     break;
             }
-            airShip.setName(name);
-            airShips.add(airShip);
+            //airShip.setName(name);
+            //airShips.add(airShip);
         }
-        return airShips;
+        return staticObjects;
     }
 }

@@ -93,7 +93,7 @@ public class StartPage extends JFrame implements ActionListener {
             label2.setText("SELECTED: " + file.getName());
             button4.setEnabled(false);
             try {
-                java.util.List<AirShip> airShips = ReadFromFile.readAirShips(file);
+                java.util.List<AirShip> airShips = ReadShipsFromFile.readAirShips(file);
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
                 // TODO: Wyswietlic komunikat o niepowodzeniu wczytywania pliku
@@ -117,7 +117,7 @@ public class StartPage extends JFrame implements ActionListener {
         }
         if (e.getSource() == button4) {
             //radar.renderShips();
-            radar.renderShips(1);
+            radar.renderShips();
             button2.setEnabled(false);
             label2.setText("SELECTED: AUTO");
             radar.showShips();

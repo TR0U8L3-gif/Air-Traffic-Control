@@ -35,12 +35,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     int delay;
     int period;
     boolean timerStart = false;
+    int selectedItem;
 
     Radar radar;
     public JPanel panel2;
     public JLabel label2;
     JPanel panel4;
-    public static int[] count = {0};
 
     ArrayList<JLabel> labelList = new ArrayList<JLabel>();
     ArrayList<JLabel> pinList = new ArrayList<JLabel>();
@@ -253,9 +253,50 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
         }, delay, period);
     }
+    public void updateText(){
+        if(selectedItem != 0) {
+            pinList.clear();
+            label4a.setText("FROM: X: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getX() + " Y: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getY());
+            label4b.setText("TO: X: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1).getEndPoint().getX() + " Y: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1).getEndPoint().getY());
+            label4c.setText("HEIGHT: " + radar.ships.get(selectedItem - 1).getCurrentHeight());
+            label4d.setText("SPEED: " + radar.ships.get(selectedItem - 1).getCurrentSpeed());
+            label4e.setText("PROGRESS BAR: ");
+            double progress = ((radar.getTime()-radar.ships.get(selectedItem-1).getStartTime())/radar.ships.get(selectedItem-1).getFlightTime())*100;
+            System.out.println(progress);
+            if (progress <= 0) {
+                progress = 0;
+            }
+            else if(progress>100){
+                progress = 100;
+            }
+            progressBar.setValue((int)progress);
+
+
+            for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
+                pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
+                if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
+                }
+            }
+
+
+        }
+        else
+        {
+            label4a.setText("FROM:   ---------");
+            label4b.setText("TO:     ---------");
+            label4c.setText("HEIGHT: ---------");
+            label4d.setText("SPEED:  ---------");
+            label4e.setText("PROGRESS BAR: ");
+            pinList.clear();
+            progressBar.setValue(0);
+        }
+    }
     public void updateMap()
     {
-
+        updateText();
         panel2.removeAll();
 
         for (int i =0; i <radar.ships.size(); i++ )
@@ -315,47 +356,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
-            int selectedItem = comboBox.getSelectedIndex();
-            if(selectedItem != 0) {
-                pinList.clear();
-                label4a.setText("FROM: X: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getX() + " Y: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getY());
-                label4b.setText("TO: X: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1).getEndPoint().getX() + " Y: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1).getEndPoint().getY());
-                label4c.setText("HEIGHT: " + radar.ships.get(selectedItem - 1).getCurrentHeight());
-                label4d.setText("SPEED: " + radar.ships.get(selectedItem - 1).getCurrentSpeed());
-                label4e.setText("PROGRESS BAR: ");
-                double progress = ((radar.getTime()-radar.ships.get(selectedItem-1).getStartTime())/radar.ships.get(selectedItem-1).getFlightTime())*100;
-                System.out.println(progress);
-                if (progress <= 0) {
-                    progressBar.setValue(0);
-                }
-                else if(progress>100){
-                    progressBar.setValue(100);
-                }
-                else{
-                    progressBar.setValue((int)progress);
-                }
+            selectedItem = comboBox.getSelectedIndex();
 
-                for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                    pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
-                    if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
-                        pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                        pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
-                    }
-                }
-
-                
-            }
-            else
-            {
-                label4a.setText("FROM:   ---------");
-                label4b.setText("TO:     ---------");
-                label4c.setText("HEIGHT: ---------");
-                label4d.setText("SPEED:  ---------");
-                label4e.setText("PROGRESS BAR: ");
-                pinList.clear();
-                progressBar.setValue(0);
-            }
             updateMap();
         }
         if(e.getSource()==button1){
@@ -374,7 +376,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         if(e.getSource()==button2){
             String someText = radar.showStaticObjects();
             String index = JOptionPane.showInputDialog(someText);
-            //System.out.println(index);
             radar.removeStaticObject(Integer.parseInt(index)-1);
             updateMap();
 
@@ -396,9 +397,26 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         }
         if(e.getSource()==button7){
             timerStart = false;
+            if(timerStart == false){
+                button1.setEnabled(true);
+                button2.setEnabled(true);
+                button3.setEnabled(true);
+                button4.setEnabled(true);
+                button5.setEnabled(true);
+                slider.setEnabled(true);
+
+            }
         }
         if(e.getSource()==button6){
             timerStart = true;
+            if(timerStart == true){
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
+                slider.setEnabled(false);
+            }
         }
 
     }
