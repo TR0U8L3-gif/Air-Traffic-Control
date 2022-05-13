@@ -1,14 +1,9 @@
 package swing;
 
-import airship.AirShip;
-import airship.Balloon;
-import airship.Helicopter;
-import airship.Plane;
-import distance.Path;
-import distance.Point;
-import distance.Section;
 import figure.Cylinder;
+import staticObjects.Building;
 import staticObjects.StaticObject;
+import staticObjects.Tree;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,52 +17,24 @@ public class ReadObjectsFromFile {
         List<StaticObject> staticObjects = new ArrayList<>();
 
         while (input.hasNext()) {
-            String name = input.next();
             String type = input.next();
             double R = Double.parseDouble(input.next());
             double H = Double.parseDouble(input.next());
-            Cylinder hitbox = new Cylinder(R, H);
-            double x0 = Double.parseDouble(input.next());
-            double y0 = Double.parseDouble(input.next());
-            Point start = new Point(x0, y0);
-            Path path = new Path();
+            //Cylinder hitbox = new Cylinder(R, H);
+            int x = Integer.parseInt(input.next());
+            int y = Integer.parseInt(input.next());
 
-            int n = input.nextInt();
-            for (int i = 0; i < n; i++) {
-                double x = Double.parseDouble(input.next());
-                double y = Double.parseDouble(input.next());
-                String token = input.next();
-                double s = Double.parseDouble(token);
-                double h = Double.parseDouble(input.next());
-
-                Point end = new Point(x, y);
-
-                Section section = new Section(start, end);
-                section.setSpeed(s);
-                section.setHeight(h);
-                path.addSection(section);
-
-                start = end;
-            }
-
-            AirShip airShip;
             switch (type) {
-                case "H":
-                    airShip = new Helicopter(hitbox, path);
-                    break;
-                case "P":
-                    airShip = new Plane(hitbox, path);
-                    break;
                 case "B":
-                    airShip = new Balloon(hitbox, path);
+                    Building B =  new Building(x, y, R, H);
+                    staticObjects.add(B);
                     break;
-                default:
-                    airShip = new AirShip(hitbox, new Path());
+                case "T":
+                    Tree T =  new Tree(x, y, R, H);
+                    staticObjects.add(T);
                     break;
             }
-            //airShip.setName(name);
-            //airShips.add(airShip);
         }
-        return staticObjects;
+    return staticObjects;
     }
 }

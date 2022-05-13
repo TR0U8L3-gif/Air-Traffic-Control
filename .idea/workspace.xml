@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="add isSafe alpha">
-      <change afterPath="$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="przywrócenie MyFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ReadFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +31,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28OKb5ntjYBO2IAnR6FPQAvE6VO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -241,7 +243,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="file-reading" />
                       </list>
                     </value>
                   </entry>
@@ -273,6 +275,11 @@
           <properties class="java.util.InputMismatchException" package="java.util" />
           <option name="timeStamp" value="7" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/swing/ReadShipsFromFile.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
