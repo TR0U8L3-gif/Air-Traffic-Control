@@ -60,6 +60,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         panel2 = new JPanel();
         JPanel panel3 = new JPanel();
         panel4 = new JPanel();
+
         panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
@@ -75,28 +76,24 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         panel3.setPreferredSize(new Dimension(400,600));
         panel4.setPreferredSize(new Dimension(900,40));
 
-
         JLabel label1 = new JLabel();
         label1.setText("AIR TRAFFIC CONTROL");
         label1.setForeground(Color.white);
         label1.setFont(new Font("MV Boli", Font.BOLD, 30));
-        label1.setBounds(270,0,500,50);
+        label1.setBounds(350,0,500,50);
 
         label3 = new JLabel();
-        //label3.setText("TIME: " + Double.toString((radar.time));
         label3.setText("TIME: " + String.format("%.2f", radar.time));
         label3.setBounds(50,0,200,50);
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
-        panel1.add(label3);
 
+        panel1.add(label3);
 
         button5 = new JButton("RESET");
         panel4.add(button5);
         button5.setBounds(10,6,80,25);
         button5.addActionListener(this);
-
-
 
         label2 = new JLabel(new ImageIcon("src/swing/img/grid.png"));
         label2.setBounds(0,0,600,600);
@@ -105,11 +102,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label3.setText("Authors: J.Rydzewski, R.Sienkiewicz, A.Stefanowski");
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.PLAIN, 13));
-        label3.setBounds(550,0,400,30);
-
-
-
-        //String[] cars = {"audi", "bmw", "mercedes", "hyundai"};
+        label3.setBounds(630,5,400,30);
 
         comboBox = new JComboBox(radar.ships.toArray());
         comboBox.insertItemAt("SELECT AIRSHIP", 0);
@@ -128,7 +121,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label4e = new JLabel("PROGRESS BAR: ");
 
         progressBar = new JProgressBar();
-        progressBar.setValue(30);
+        progressBar.setValue(0);
         progressBar.setBounds(20,270,200,25);
         progressBar.setStringPainted(true);
         progressBar.setForeground(Color.white);
@@ -150,7 +143,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label4c.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4d.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4e.setFont(new Font("MV Boli", Font.PLAIN, 13));
-
 
         label4.setBackground(new Color(57,75,85,255));
         label4.setOpaque(true);
@@ -182,13 +174,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         button4.addActionListener(this);
 
         panel1.add(label1);
-        panel4.add(label3);
         panel3.add(comboBox);
         panel3.add(label4);
         panel3.add(button1);
         panel3.add(button2);
         panel3.add(button3);
         panel3.add(button4);
+        panel4.add(label3);
 
         slider = new JSlider(0,1000,50);
         this.add(slider);
@@ -212,12 +204,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         button7.addActionListener(this);
         button6.addActionListener(this);
 
-        JLabel label = new JLabel("TIME");
+        JLabel label = new JLabel("");
         label.setFont(new Font("MV Boli", Font.PLAIN, 20));
         label.setForeground(Color.white);
         label.setBounds(916,140, 80,26);
         this.add(label);
 
+        updateMap();
 
         delay = 10;
         period = 40;
@@ -229,7 +222,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.add(panel3, BorderLayout.EAST);
         this.add(panel4, BorderLayout.SOUTH);
 
-        updateMap();
     }
     public void timer()
     {
@@ -248,7 +240,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                         radar.ships.get(i).move(radar.getTime());
                     }
                     slider.setValue((int)radar.getTime());
-                    updateMap();
+                    updateText();
+
                 }
             }
         }, delay, period);
@@ -271,17 +264,14 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
             progressBar.setValue((int)progress);
 
-
             for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
                 pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY(), 30, 30);
+                pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-50, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-50, 30, 30);
                 if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX(), (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY(), 30, 30);
+                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-50, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-50, 30, 30);
                 }
             }
-
-
         }
         else
         {
@@ -303,23 +293,22 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         {
             if (radar.ships.get(i).getName().equals("AirShip")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo1.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
-
             else if (radar.ships.get(i).getName().equals("Balloon")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/balloon1.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/helicopter1.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/plane1.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX(), (int)radar.ships.get(i).getY(), 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
         }
@@ -327,13 +316,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/img/treeicon1.png"));
-                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(), 2* (int)radar.staticObjects.get(i).getRadius(),2* (int)radar.staticObjects.get(i).getRadius());
+                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 2* (int)radar.staticObjects.get(i).getRadius(),2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
-
             else if(radar.staticObjects.get(i).getType().equals("building")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/img/buildingicon1.png"));
-                label.setBounds(radar.staticObjects.get(i).getX(), radar.staticObjects.get(i).getY(),2* (int)radar.staticObjects.get(i).getRadius(), 2* (int)radar.staticObjects.get(i).getRadius());
+                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,2* (int)radar.staticObjects.get(i).getRadius(), 2* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
         }
@@ -343,13 +331,11 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
         }
 
-
         panel2.add(label2);
         panel2.revalidate();
         panel2.repaint();
 
         this.setVisible(true);
-
     }
 
 
@@ -357,12 +343,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
             selectedItem = comboBox.getSelectedIndex();
-
             updateMap();
         }
         if(e.getSource()==button1){
+
             String newData = JOptionPane.showInputDialog(" tree/building x y radius height\n example: tree 100 150 30 15");
             String[] newDataArray = newData.split(" ");
+
             if(newDataArray[0].equals("tree")){
                 radar.addTree(new Tree(Integer.parseInt(newDataArray[1]), Integer.parseInt(newDataArray[2]), Integer.parseInt(newDataArray[3]), Integer.parseInt(newDataArray[4])));
             }
@@ -383,7 +370,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         if(e.getSource()==button4){
             String someText = radar.showShips();
             String index = JOptionPane.showInputDialog(someText);
-            //System.out.println(index);
             radar.removeAirShips(Integer.parseInt(index)-1);
             updateMap();
 
