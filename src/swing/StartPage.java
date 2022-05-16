@@ -2,6 +2,8 @@ package swing;
 
 import airship.AirShip;
 import radar.*;
+import staticObjects.StaticObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -105,15 +107,11 @@ public class StartPage extends JFrame implements ActionListener {
             File file = fileChooser.getSelectedFile();
             label3.setText("SELECTED: " + file.getName());
             button5.setEnabled(false);
-                /*
-                try {
-                    java.util.List<AirShip> airShips = ReadFromFile.readAirShips(file);
-                } catch (FileNotFoundException ex) {
-                    ex.printStackTrace();
-                 // TODO: Wyswietlic komunikat o niepowodzeniu wczytywania pliku
-                }
-
-                 */
+            try {
+                java.util.List<StaticObject> staticObjects = ReadObjectsFromFile.readStaticObjects(file);
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
         if (e.getSource() == button4) {
             //radar.renderShips();
