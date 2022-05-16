@@ -20,7 +20,7 @@ public class ReadObjectsFromFile {
             String type = input.next();
             double R = Double.parseDouble(input.next());
             double H = Double.parseDouble(input.next());
-            //Cylinder hitbox = new Cylinder(R, H);
+            Cylinder hitbox = new Cylinder(R, H);
             int x = Integer.parseInt(input.next());
             int y = Integer.parseInt(input.next());
 

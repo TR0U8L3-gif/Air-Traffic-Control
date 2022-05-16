@@ -21,6 +21,8 @@ public class StartPage extends JFrame implements ActionListener {
     JFileChooser fileChooser;
     JLabel label2;
     JLabel label3;
+    JButton button6;
+    JButton button7;
 
     Radar radar;
 
@@ -70,6 +72,20 @@ public class StartPage extends JFrame implements ActionListener {
         button5.setBounds(355, 350, 250, 75);
         button5.addActionListener(this);
 
+        button6 = new JButton(new ImageIcon("src/swing/img/infoIcon.png"));
+        button7 = new JButton(new ImageIcon("src/swing/img/infoIcon.png"));
+        button6.setBounds(50, 260, 25, 25);
+        button7.setBounds(50, 360, 25, 25);
+
+        button6.setBorder(BorderFactory.createEmptyBorder());
+        button6.setContentAreaFilled(false);
+
+        button7.setBorder(BorderFactory.createEmptyBorder());
+        button7.setContentAreaFilled(false);
+
+        button6.addActionListener(this);
+        button7.addActionListener(this);
+
         this.add(label);
         this.add(label2);
         this.add(button);
@@ -78,6 +94,8 @@ public class StartPage extends JFrame implements ActionListener {
         this.add(button4);
         this.add(button5);
         this.add(label3);
+        this.add(button6);
+        this.add(button7);
 
         this.setVisible(true);
     }
@@ -96,6 +114,11 @@ public class StartPage extends JFrame implements ActionListener {
             button4.setEnabled(false);
             try {
                 java.util.List<AirShip> airShips = ReadShipsFromFile.readAirShips(file);
+
+                for(int i = 0; i < airShips.size(); i++){
+                    radar.ships.add(airShips.get(i));
+                }
+
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
                 // TODO: Wyswietlic komunikat o niepowodzeniu wczytywania pliku
@@ -109,6 +132,11 @@ public class StartPage extends JFrame implements ActionListener {
             button5.setEnabled(false);
             try {
                 java.util.List<StaticObject> staticObjects = ReadObjectsFromFile.readStaticObjects(file);
+
+                for(int i = 0; i < staticObjects.size(); i++){
+                    radar.staticObjects.add(staticObjects.get(i));
+                }
+
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
@@ -125,6 +153,12 @@ public class StartPage extends JFrame implements ActionListener {
             button3.setEnabled(false);
             label3.setText("SELECTED: AUTO");
             radar.showStaticObjects();
+        }
+        if (e.getSource() == button6) {
+            JOptionPane.showMessageDialog(this, " name type radius height x0 y0 n x1 y1 s1 h1 ... xn yn sn hn\n example: \n Helicopter1 H 2.0 5.0 100 200 2 30.0 40.0 10.0 20.0 40.0 50.0 3.0 20.0");
+        }
+        if (e.getSource() == button7) {
+            JOptionPane.showMessageDialog(this, " type radius height x y\n example: \n T 30 30 100 100");
         }
     }
 }

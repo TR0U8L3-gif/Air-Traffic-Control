@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="przywrócenie MyFrame">
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="repair map (blinking, xy)">
+      <change afterPath="$PROJECT_DIR$/src/swing/img/infoIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swing/ships.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swing/staticobjects.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/airship/AirShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/airship/AirShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/balloon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/balloon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/buildingicon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/buildingicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/helicopter1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/helicopter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/plane1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/plane.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/treeicon1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/treeicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/img/ufo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/img/ufo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +45,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28OKb5ntjYBO2IAnR6FPQAvE6VO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -157,6 +168,10 @@
       <workItem from="1652193534127" duration="168000" />
       <workItem from="1652209153322" duration="48000" />
       <workItem from="1652269381886" duration="806000" />
+      <workItem from="1652515704555" duration="613000" />
+      <workItem from="1652545102275" duration="4002000" />
+      <workItem from="1652630832602" duration="574000" />
+      <workItem from="1652685248291" duration="2902000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -221,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652193373477</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="repair map (blinking, xy)">
+      <created>1652549117194</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652549117194</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +265,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="file-reading" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -266,7 +288,8 @@
     <MESSAGE value="initial timeSlider" />
     <MESSAGE value="moving slider" />
     <MESSAGE value="add isSafe alpha" />
-    <option name="LAST_COMMIT_MESSAGE" value="add isSafe alpha" />
+    <MESSAGE value="repair map (blinking, xy)" />
+    <option name="LAST_COMMIT_MESSAGE" value="repair map (blinking, xy)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -275,11 +298,6 @@
           <properties class="java.util.InputMismatchException" package="java.util" />
           <option name="timeStamp" value="7" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/swing/ReadShipsFromFile.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -53,6 +53,7 @@ public class AirShip {
     public void move(double time)
     {
         System.out.println("=================================");
+        System.out.println(this.getName());
         System.out.println("Start time: " + this.startTime);
         System.out.println("Flight time: " + this.flightTime);
         if (time <= this.startTime)

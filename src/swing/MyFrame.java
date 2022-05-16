@@ -292,22 +292,22 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         for (int i =0; i <radar.ships.size(); i++ )
         {
             if (radar.ships.get(i).getName().equals("AirShip")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo1.png")));
+                labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Balloon")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/balloon1.png")));
+                labelList.add(new JLabel(new ImageIcon("src/swing/img/balloon.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/helicopter1.png")));
+                labelList.add(new JLabel(new ImageIcon("src/swing/img/helicopter.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/plane1.png")));
+                labelList.add(new JLabel(new ImageIcon("src/swing/img/plane.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
@@ -315,12 +315,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         for (int i =0; i <radar.staticObjects.size(); i++ )
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/img/treeicon1.png"));
+                JLabel label = new JLabel(new ImageIcon("src/swing/img/treeicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 4* (int)radar.staticObjects.get(i).getRadius(),4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
             else if(radar.staticObjects.get(i).getType().equals("building")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/img/buildingicon1.png"));
+                JLabel label = new JLabel(new ImageIcon("src/swing/img/buildingicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,4* (int)radar.staticObjects.get(i).getRadius(), 4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
