@@ -316,12 +316,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/img/treeicon1.png"));
-                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 2* (int)radar.staticObjects.get(i).getRadius(),2* (int)radar.staticObjects.get(i).getRadius());
+                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 4* (int)radar.staticObjects.get(i).getRadius(),4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
             else if(radar.staticObjects.get(i).getType().equals("building")){
                 JLabel label = new JLabel(new ImageIcon("src/swing/img/buildingicon1.png"));
-                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,2* (int)radar.staticObjects.get(i).getRadius(), 2* (int)radar.staticObjects.get(i).getRadius());
+                label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,4* (int)radar.staticObjects.get(i).getRadius(), 4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
         }
@@ -330,6 +330,36 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 panel2.add(pinList.get(i));
             }
         }
+
+        for(int i = 0; i < radar.ships.size(); i++){
+            for(int k = 0; k < radar.staticObjects.size(); k++){
+                if(radar.isSafeStaticObject(radar.ships.get(i), radar.staticObjects.get(k))){
+                    continue;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + radar.ships.get(i).getX() + " " + radar.ships.get(i).getY() + " " + radar.ships.get(i).getCurrentHeight() + " collides with " + radar.staticObjects.get(k).getType()+ " " + radar.staticObjects.get(k).getX() + " " + radar.staticObjects.get(k).getY() + " " + radar.staticObjects.get(k).getHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+
+
+        for(int i = 0; i < radar.ships.size(); i++){
+            for(int k = 0; k < radar.ships.size(); k++){
+                if(radar.ships.get(i) != radar.ships.get(k)){
+                    if(radar.isSafeAirShip(radar.ships.get(i), radar.ships.get(k))){
+                        continue;
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + radar.ships.get(i).getX() + " " + radar.ships.get(i).getY() + " " + radar.ships.get(i).getCurrentHeight() + " collides with " + radar.ships.get(k).getName()+ " " + radar.ships.get(k).getX() + " " + radar.ships.get(k).getY() + " " + radar.ships.get(k).getCurrentHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+
+            }
+        }
+
+
+
+
 
         panel2.add(label2);
         panel2.revalidate();
@@ -417,4 +447,5 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         updateMap();
         System.out.println(radar.getTime());
     }
+
 }
