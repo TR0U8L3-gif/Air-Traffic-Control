@@ -270,6 +270,60 @@ public class Radar {
             return true;
         }
     }
+    public double maxFlightTime ()
+    {
+        double maxTime = ships.get(0).getFlightTime() + ships.get(0).getStartTime();
+        for (int i = 1; i < countShips(); i++)
+        {
+            double actualTime = ships.get(i).getFlightTime() + ships.get(i).getStartTime();
+            if(actualTime > maxTime)
+            {
+                maxTime = actualTime;
+            }
+        }
+        return maxTime;
+    }
+    public double maxDistance()
+    {
+        double maxDistabce = 0;
+        double maxX = 0;
+        double minX = Double.MAX_VALUE;
+        double maxY = 0;
+        double minY = Double.MAX_VALUE;
+        for (int i = 0; i < countShips(); i++)
+        {
+            for (int j = 0; j < ships.get(i).airPath.flightPath.size(); j++)
+            {
+                double x1 = ships.get(i).airPath.flightPath.get(j).getStartPoint().getX();
+                double y1 = ships.get(i).airPath.flightPath.get(j).getStartPoint().getY();
+                if(maxX < x1) { maxX = x1; }
+                if(maxY < y1) { maxY = y1; }
+                if(minX > x1) { minX = x1; }
+                if(minY > y1) { minY = y1; }
+                if(j == ships.get(i).airPath.flightPath.size() -1)
+                {
+                    double x2 = ships.get(i).airPath.flightPath.get(j).getEndPoint().getX();
+                    double y2 = ships.get(i).airPath.flightPath.get(j).getEndPoint().getY();
+                    if(maxX < x2) { maxX = x2; }
+                    if(minX > x2) { minX = x2; }
+                    if(maxY < y2) { maxY = y2; }
+                    if(minY > y2) { minY = y2; }
+                }
+            }
+        }
+        double maxXValue = -minX + maxX;
+        double maxYValue = -minY + maxY;
+        if(maxXValue > maxYValue)
+        {
+            return  maxXValue;
+        }
+        else
+        {
+            return  maxYValue;
+        }
+    }
+
+
 }
 
 
