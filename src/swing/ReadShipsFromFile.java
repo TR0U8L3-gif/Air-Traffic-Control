@@ -20,7 +20,6 @@ public class ReadShipsFromFile {
         List<AirShip> airShips = new ArrayList<>();
 
         while (input.hasNext()) {
-            String name = input.next();
             String type = input.next();
             double R = Double.parseDouble(input.next());
             double H = Double.parseDouble(input.next());
@@ -63,7 +62,6 @@ public class ReadShipsFromFile {
                     airShip = new AirShip(hitbox, new Path());
                     break;
             }
-            airShip.setName(name);
             airShips.add(airShip);
         }
         return airShips;

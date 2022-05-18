@@ -1,5 +1,13 @@
 package swing;
 
+import airship.AirShip;
+import airship.Balloon;
+import airship.Helicopter;
+import airship.Plane;
+import distance.Path;
+import distance.Point;
+import distance.Section;
+import figure.Cylinder;
 import staticObjects.*;
 import radar.*;
 import javax.swing.*;
@@ -39,6 +47,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
     Radar radar;
     public JPanel panel2;
+    public JPanel panel3;
     public JLabel label2;
     JPanel panel4;
 
@@ -58,7 +67,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
         JPanel panel1 = new JPanel();
         panel2 = new JPanel();
-        JPanel panel3 = new JPanel();
+        panel3 = new JPanel();
         panel4 = new JPanel();
 
         panel1.setLayout(null);
@@ -110,6 +119,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
         comboBox.addActionListener(this);
         comboBox.setBounds(30,30,250,25);
+        System.out.println(comboBox.getItemCount());
 
         JLabel label4 = new JLabel();
         label4.setLayout(null);
@@ -397,10 +407,60 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             updateMap();
 
         }
+        if(e.getSource()==button3){
+            String newData = JOptionPane.showInputDialog("airship/plane/helicopter/balloon radius height x0 y0 n x1 y1 s1 h1 xn yn sn hn\n example: P 1.0 2.0 400 50 1 60.0 60.0 20.0 3.0");
+            String[] newDataArray = newData.split(" ");
+            double R = Double.parseDouble(newDataArray[1]);
+            double H = Double.parseDouble(newDataArray[2]);
+            Cylinder hitbox = new Cylinder(R, H);
+            double x0 = Double.parseDouble(newDataArray[3]);
+            double y0 = Double.parseDouble(newDataArray[4]);
+            distance.Point start = new distance.Point(x0, y0);
+            Path path = new Path();
+
+            int n = Integer.parseInt(newDataArray[5]);
+            for (int i = 0; i < n; i++) {
+                double x = Double.parseDouble(newDataArray[5+i*1]);
+                double y = Double.parseDouble(newDataArray[5+i*2]);
+                double s = Double.parseDouble(newDataArray[5+i*3]);
+                double h = Double.parseDouble(newDataArray[5+i*4]);
+
+                distance.Point end = new Point(x, y);
+
+                Section section = new Section(start, end);
+                section.setSpeed(s);
+                section.setHeight(h);
+                path.addSection(section);
+
+                start = end;
+            }
+            AirShip airShip;
+            if(newDataArray[0].equals("H")){
+                airShip = new Helicopter(hitbox, path);
+                radar.ships.add(airShip);
+            }
+            else if(newDataArray[0].equals("P")){
+                airShip = new Plane(hitbox, path);
+                radar.ships.add(airShip);
+            }
+            else if(newDataArray[0].equals("B")){
+                airShip = new Balloon(hitbox, path);
+                radar.ships.add(airShip);
+            }
+            else{
+                airShip = new AirShip(hitbox, path);
+                radar.ships.add(airShip);
+            }
+            comboBox.insertItemAt(airShip, comboBox.getItemCount());
+            updateMap();
+        }
         if(e.getSource()==button4){
+            System.out.println(comboBox.getItemCount());
             String someText = radar.showShips();
             String index = JOptionPane.showInputDialog(someText);
             radar.removeAirShips(Integer.parseInt(index)-1);
+
+            comboBox.removeItemAt(Integer.parseInt(index));
             updateMap();
 
         }
