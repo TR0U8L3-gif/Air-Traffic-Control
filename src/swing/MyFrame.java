@@ -191,8 +191,9 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         panel3.add(button3);
         panel3.add(button4);
         panel4.add(label3);
-
-        slider = new JSlider(0,1000,50);
+        int length = String.valueOf((int)radar.maxFlightTime()).length();
+        System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
+        slider = new JSlider(0,(int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)),0);
         this.add(slider);
         slider.setBounds(900,180,75,400);
         slider.setOrientation(SwingConstants.VERTICAL);
@@ -452,6 +453,9 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 radar.ships.add(airShip);
             }
             comboBox.insertItemAt(airShip, comboBox.getItemCount());
+            int length = String.valueOf((int)radar.maxFlightTime()).length();
+            System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
+            slider.setMaximum((int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)));
             updateMap();
         }
         if(e.getSource()==button4){

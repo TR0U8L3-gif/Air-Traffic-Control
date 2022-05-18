@@ -272,6 +272,10 @@ public class Radar {
     }
     public double maxFlightTime ()
     {
+        if(ships.size() == 0)
+        {
+            return 1000;
+        }
         double maxTime = ships.get(0).getFlightTime() + ships.get(0).getStartTime();
         for (int i = 1; i < countShips(); i++)
         {
@@ -285,6 +289,10 @@ public class Radar {
     }
     public double maxDistance()
     {
+        if(ships.size() == 0)
+        {
+            return 400;
+        }
         double maxDistabce = 0;
         double maxX = 0;
         double minX = Double.MAX_VALUE;
