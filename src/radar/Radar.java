@@ -10,7 +10,7 @@ public class Radar {
     public double time = 0;
     public List<StaticObject> staticObjects = new ArrayList<>();
     public List<AirShip> ships = new ArrayList<>();
-
+    private int offset = 30;
     public void setTime(double time) {
         this.time = time;
     }
@@ -116,12 +116,12 @@ public class Radar {
         for (int i = 0; i <= rand.nextInt(5) + 4; i++) {
             Path fly = new Path();
             do {
-                int x1 = rand.nextInt(bound);
-                int y1 = rand.nextInt(bound);
+                int x1 = rand.nextInt(bound)+offset;
+                int y1 = rand.nextInt(bound)+offset;
                 Point p1 = new Point(x1, y1);
 
-                int x2 = rand.nextInt(bound);
-                int y2 = rand.nextInt(bound);
+                int x2 = rand.nextInt(bound)+offset;
+                int y2 = rand.nextInt(bound)+offset;
                 Point p2 = new Point(x2, y2);
                 Section section = new Section(p1, p2);
                 fly.addSection(section);
