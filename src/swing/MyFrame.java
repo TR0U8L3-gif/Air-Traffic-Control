@@ -354,8 +354,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         }
 
 
-        for(int i = 0; i < radar.ships.size(); i++){
-            for(int k = 0; k < radar.ships.size(); k++){
+        for(int i = 0; i < radar.ships.size()-1; i++){
+            for(int k = i+1; k < radar.ships.size(); k++){
                 if(radar.ships.get(i) != radar.ships.get(k)){
                     if(radar.isSafeAirShip(radar.ships.get(i), radar.ships.get(k))){
                         continue;
@@ -409,13 +409,14 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
         }
         if(e.getSource()==button3){
-            String newData = JOptionPane.showInputDialog("airship/plane/helicopter/balloon radius height x0 y0 n x1 y1 s1 h1 xn yn sn hn\n example: P 1.0 2.0 400 50 1 60.0 60.0 20.0 3.0");
+            String newData = JOptionPane.showInputDialog("airship/plane/helicopter/balloon x0 y0 radius height n x1 y1 s1 h1 ... xn yn sn hn\n example: P 1.0 2.0 400 50 1 60.0 60.0 20.0 3.0");
             String[] newDataArray = newData.split(" ");
-            double R = Double.parseDouble(newDataArray[1]);
-            double H = Double.parseDouble(newDataArray[2]);
+
+            double x0 = Double.parseDouble(newDataArray[1]);
+            double y0 = Double.parseDouble(newDataArray[2]);
+            double R = Double.parseDouble(newDataArray[3]);
+            double H = Double.parseDouble(newDataArray[4]);
             Cylinder hitbox = new Cylinder(R, H);
-            double x0 = Double.parseDouble(newDataArray[3]);
-            double y0 = Double.parseDouble(newDataArray[4]);
             distance.Point start = new distance.Point(x0, y0);
             Path path = new Path();
 

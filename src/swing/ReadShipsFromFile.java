@@ -21,12 +21,12 @@ public class ReadShipsFromFile {
 
         while (input.hasNext()) {
             String type = input.next();
-            double R = Double.parseDouble(input.next());
-            double H = Double.parseDouble(input.next());
-            Cylinder hitbox = new Cylinder(R, H);
             double x0 = Double.parseDouble(input.next());
             double y0 = Double.parseDouble(input.next());
             Point start = new Point(x0, y0);
+            double R = Double.parseDouble(input.next());
+            double H = Double.parseDouble(input.next());
+            Cylinder hitbox = new Cylinder(R, H);
             Path path = new Path();
 
             int n = input.nextInt();
