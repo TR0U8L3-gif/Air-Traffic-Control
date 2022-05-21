@@ -1,9 +1,9 @@
-name, t, R, H, x0, y0, n, x1, y1, s1, h1, ..., xn, yn, sn, hn
+name, x0, y0, Start Time, R, H, n, x1, y1, s1, h1, ..., xn, yn, sn, hn
 name - nazwa obiektu
-t - typ obiektu
+x0, y0 - pozycja początkowa
+Start Time - odlot samolotu
 R - promień hitboxa
 H - wysokość hitboxa
-x0, y0 - pozycja początkowa
 n - liczba odcinków
 xi, yi - cel odcinka
 si - prędkość na odcinku

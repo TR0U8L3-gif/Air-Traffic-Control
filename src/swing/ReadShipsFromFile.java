@@ -20,15 +20,15 @@ public class ReadShipsFromFile {
         List<AirShip> airShips = new ArrayList<>();
 
         while (input.hasNext()) {
-            String type = input.next();
+            String name = input.next();
             double x0 = Double.parseDouble(input.next());
             double y0 = Double.parseDouble(input.next());
+            double startTime = Double.parseDouble(input.next());
             Point start = new Point(x0, y0);
             double R = Double.parseDouble(input.next());
             double H = Double.parseDouble(input.next());
             Cylinder hitbox = new Cylinder(R, H);
             Path path = new Path();
-
             int n = input.nextInt();
             for (int i = 0; i < n; i++) {
                 double x = Double.parseDouble(input.next());
@@ -48,18 +48,18 @@ public class ReadShipsFromFile {
             }
 
             AirShip airShip;
-            switch (type) {
+            switch (name) {
                 case "H":
-                    airShip = new Helicopter(hitbox, path);
+                    airShip = new Helicopter(hitbox, path, startTime);
                     break;
                 case "P":
-                    airShip = new Plane(hitbox, path);
+                    airShip = new Plane(hitbox, path, startTime);
                     break;
                 case "B":
-                    airShip = new Balloon(hitbox, path);
+                    airShip = new Balloon(hitbox, path, startTime);
                     break;
                 default:
-                    airShip = new AirShip(hitbox, new Path());
+                    airShip = new AirShip(hitbox, new Path(), startTime);
                     break;
             }
             airShips.add(airShip);

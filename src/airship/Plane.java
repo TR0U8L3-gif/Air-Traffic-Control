@@ -10,7 +10,7 @@ public class Plane extends AirShip{
         super.setFlightTime();
         super.move(0);
     }
-    public Plane(Cylinder hitbox, Path airPath, int startTime ) {
+    public Plane(Cylinder hitbox, Path airPath, double startTime ) {
         super(hitbox, airPath, startTime);
         super.name = this.getClass().getSimpleName();
         super.setFlightTime();

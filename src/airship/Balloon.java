@@ -10,7 +10,7 @@ public class Balloon extends AirShip{
         super.setFlightTime();
         super.move(0);
     }
-    public Balloon(Cylinder hitbox, Path airPath, int startTime ) {
+    public Balloon(Cylinder hitbox, Path airPath, double startTime ) {
         super(hitbox, airPath, startTime);
         super.name = this.getClass().getSimpleName();
         super.setFlightTime();

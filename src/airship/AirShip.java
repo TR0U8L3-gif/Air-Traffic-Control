@@ -21,7 +21,7 @@ public class AirShip {
         setFlightTime();
         move(0);
     }
-    public AirShip(Cylinder hitbox, Path airPath, int startTime) {
+    public AirShip(Cylinder hitbox, Path airPath, double startTime) {
         this.airPath = airPath;
         this.hitbox = hitbox;
         this.startTime = startTime;
