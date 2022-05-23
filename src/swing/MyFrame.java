@@ -276,12 +276,18 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             progressBar.setValue((int)progress);
 
             for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
-                pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-50, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-50, 30, 30);
-                if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
-                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-50, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-50, 30, 30);
+
+                if (i==0){
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
                 }
+                else if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
+                }
+                pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
+
             }
         }
         else
@@ -304,22 +310,22 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         {
             if (radar.ships.get(i).getName().equals("AirShip")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Balloon")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/balloon.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/helicopter.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/plane.png")));
-                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-50, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
+                labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
         }
@@ -409,23 +415,24 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
         }
         if(e.getSource()==button3){
-            String newData = JOptionPane.showInputDialog("airship/plane/helicopter/balloon x0 y0 radius height n x1 y1 s1 h1 ... xn yn sn hn\n example: P 1.0 2.0 400 50 1 60.0 60.0 20.0 3.0");
+            String newData = JOptionPane.showInputDialog("airship/plane/helicopter/balloon x0 y0 startTime radius height n x1 y1 s1 h1 ... xn yn sn hn\n example: P 300 300 10 50 20 1 60.0 60.0 20.0 3.0");
             String[] newDataArray = newData.split(" ");
 
             double x0 = Double.parseDouble(newDataArray[1]);
             double y0 = Double.parseDouble(newDataArray[2]);
-            double R = Double.parseDouble(newDataArray[3]);
-            double H = Double.parseDouble(newDataArray[4]);
+            double startTime = Double.parseDouble(newDataArray[3]);
+            double R = Double.parseDouble(newDataArray[4]);
+            double H = Double.parseDouble(newDataArray[5]);
             Cylinder hitbox = new Cylinder(R, H);
             distance.Point start = new distance.Point(x0, y0);
             Path path = new Path();
 
-            int n = Integer.parseInt(newDataArray[5]);
+            int n = Integer.parseInt(newDataArray[6]);
             for (int i = 0; i < n; i++) {
-                double x = Double.parseDouble(newDataArray[5+i*1]);
-                double y = Double.parseDouble(newDataArray[5+i*2]);
-                double s = Double.parseDouble(newDataArray[5+i*3]);
-                double h = Double.parseDouble(newDataArray[5+i*4]);
+                double x = Double.parseDouble(newDataArray[6+i*1]);
+                double y = Double.parseDouble(newDataArray[6+i*2]);
+                double s = Double.parseDouble(newDataArray[6+i*3]);
+                double h = Double.parseDouble(newDataArray[6+i*4]);
 
                 distance.Point end = new Point(x, y);
 
@@ -438,19 +445,19 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
             AirShip airShip;
             if(newDataArray[0].equals("H")){
-                airShip = new Helicopter(hitbox, path);
+                airShip = new Helicopter(hitbox, path, startTime);
                 radar.ships.add(airShip);
             }
             else if(newDataArray[0].equals("P")){
-                airShip = new Plane(hitbox, path);
+                airShip = new Plane(hitbox, path, startTime);
                 radar.ships.add(airShip);
             }
             else if(newDataArray[0].equals("B")){
-                airShip = new Balloon(hitbox, path);
+                airShip = new Balloon(hitbox, path, startTime);
                 radar.ships.add(airShip);
             }
             else{
-                airShip = new AirShip(hitbox, path);
+                airShip = new AirShip(hitbox, path, startTime);
                 radar.ships.add(airShip);
             }
             comboBox.insertItemAt(airShip, comboBox.getItemCount());

@@ -155,7 +155,7 @@ public class StartPage extends JFrame implements ActionListener {
             radar.showStaticObjects();
         }
         if (e.getSource() == button6) {
-            JOptionPane.showMessageDialog(this, " name type radius height x0 y0 n x1 y1 s1 h1 ... xn yn sn hn\n example: \n Helicopter1 H 2.0 5.0 100 200 2 30.0 40.0 10.0 20.0 40.0 50.0 3.0 20.0");
+            JOptionPane.showMessageDialog(this, " type x0 y0 startTime radius height n x1 y1 s1 h1 ... xn yn sn hn\n example: \n H 200 300 10 30 0 30.0 40.0 10.0 20.0 40.0 50.0 3.0 20.0");
         }
         if (e.getSource() == button7) {
             JOptionPane.showMessageDialog(this, " type radius height x y\n example: \n T 30 30 100 100");
