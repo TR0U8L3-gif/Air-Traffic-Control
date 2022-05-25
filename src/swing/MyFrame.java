@@ -348,9 +348,10 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     {
         updateText();
         panel2.removeAll();
-
+        labelList.clear();
         for (int i =0; i <radar.ships.size(); i++ )
         {
+            System.out.println(radar.ships.get(i).getName());
             if (radar.ships.get(i).getName().equals("AirShip")){
                 labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
@@ -416,18 +417,17 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
             }
         }
-
-
-
-
-
         panel2.add(label2);
         panel2.revalidate();
         panel2.repaint();
 
         this.setVisible(true);
     }
-
+    public void updateSlider(){
+        int length = String.valueOf((int)radar.maxFlightTime()).length();
+        System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
+        slider.setMaximum((int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)));
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
@@ -512,9 +512,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 radar.ships.add(airShip);
             }
             comboBox.insertItemAt(airShip, comboBox.getItemCount());
-            int length = String.valueOf((int)radar.maxFlightTime()).length();
-            System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
-            slider.setMaximum((int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)));
+            updateSlider();
             updateMap();
         }
         if(e.getSource()==button4){
@@ -525,6 +523,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
             comboBox.removeItemAt(Integer.parseInt(index));
             updateMap();
+            updateSlider();
 
         }
         if(e.getSource()==button5){
@@ -570,6 +569,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             radar.ships.get(selectedItem-1).airPath.addPoint(p, height, speed);
             radar.ships.get(selectedItem-1).setFlightTime();
             updateMap();
+            updateSlider();
 
 
         }
@@ -581,6 +581,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             radar.ships.get(selectedItem-1).setFlightTime();
             updateMap();
             System.out.println("PO: " + radar.ships.get(selectedItem-1).airPath.toString());
+            updateSlider();
         }
 
 

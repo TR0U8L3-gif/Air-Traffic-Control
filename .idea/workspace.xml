@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="fixed pins, fixed adding ships">
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="new buttons + add/remove path points">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Path.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distance/Section.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ships.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/ships.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +173,7 @@
       <workItem from="1652193534127" duration="168000" />
       <workItem from="1652209153322" duration="48000" />
       <workItem from="1652269381886" duration="806000" />
-      <workItem from="1653475275137" duration="8603000" />
+      <workItem from="1653475275137" duration="9719000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -262,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653336777059</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="new buttons + add/remove path points">
+      <created>1653484151431</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1653484151432</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +314,8 @@
     <MESSAGE value="Reading Airship correction" />
     <MESSAGE value="Reading Airship" />
     <MESSAGE value="fixed pins, fixed adding ships" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pins, fixed adding ships" />
+    <MESSAGE value="new buttons + add/remove path points" />
+    <option name="LAST_COMMIT_MESSAGE" value="new buttons + add/remove path points" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
