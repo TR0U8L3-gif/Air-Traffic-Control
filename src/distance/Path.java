@@ -46,37 +46,50 @@ public class Path {
 			return null;
 		}
 	}
-	public String removePoint(Point p)
-	{
-		if (flightPath.size() > 1) {
-			for (int i = 0; i < flightPath.size(); i++) {
-				if (flightPath.get(i).from.equals(p)) {
-					if (i == 0) {
-						flightPath.remove(i);
-					} else {
-						flightPath.get(i - 1).to = new Point(flightPath.get(i).to);
-						flightPath.remove(i);
-					}
-					return "removed";
-				}
-				if (flightPath.get(i).to.equals(p)) {
-					if (i == flightPath.size()-1) {
-						flightPath.remove(i);
-					} else {
-						flightPath.get(i + 1).from = new Point(flightPath.get(i).from);
-						flightPath.remove(i);
-					}
-					return "removed";
-				}
-			}
-			return "there is no such point";
+	public String addPoint(Point p, double height, double speed) {
+		if(flightPath.isEmpty()) {
+			return "base flight path dont exist";
+		} else {
+			Point end = flightPath.get(flightPath.size()-1).getEndPoint();
+			Section trip = new Section(end, p);
+			trip.setHeight(height);
+			trip.setSpeed(speed);
+			flightPath.add(trip);
+			return null;
 		}
-		return "not enough points to create path";
+	}
+	public String removePoint(int index) {
+		index -= 1;
+		if (index == 0) {
+			removeSection(0);
+		} else if (index == flightPath.size()) {
+			removeSection(flightPath.size()-1);
+		}
+		else if(index>flightPath.size()){
+			return "unable to remove B)";
+		}
+		else {
+			flightPath.get(index - 1).to = new Point(flightPath.get(index).to);
+			flightPath.remove(index);
+		}
+		return "removed";
 	}
 	public String toString() {
 		String msg = "flight path:\n";
 		for(int i = 0; i < flightPath.size(); i++) {
 			msg += flightPath.get(i).toString();
+		}
+		msg += "\n";
+		return msg;
+	}
+	public String showPath() {
+		String msg = "flight path:\n";
+		for(int i = 0; i < flightPath.size(); i++) {
+			msg += (i+1) + ") " + flightPath.get(i).getStartPoint().toString() + "\n";
+			if(i == flightPath.size()-1)
+			{
+				msg += (i+2) + ") " + flightPath.get(i).getEndPoint().toString();
+			}
 		}
 		msg += "\n";
 		return msg;

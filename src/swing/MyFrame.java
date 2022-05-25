@@ -30,6 +30,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     JLabel label4c;
     JLabel label4d;
     JLabel label4e;
+    JLabel label4f;
+    JLabel label4g;
     JProgressBar progressBar;
     JButton button1;
     JButton button2;
@@ -39,6 +41,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
     JSlider slider;
     JButton button6;
     JButton button7;
+    JButton button8;
+    JButton button9;
     java.util.Timer timer;
     int delay;
     int period;
@@ -64,7 +68,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.setResizable(false);
         this.setTitle("Air Traffic Control");
         this.setLocationRelativeTo(null);
-
         JPanel panel1 = new JPanel();
         panel2 = new JPanel();
         panel3 = new JPanel();
@@ -124,35 +127,45 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         JLabel label4 = new JLabel();
         label4.setLayout(null);
 
-        label4a = new JLabel("FROM:   ---------");
-        label4b = new JLabel("TO:     ---------");
-        label4c = new JLabel("HEIGHT: ---------");
-        label4d = new JLabel("SPEED:  ---------");
+        label4a = new JLabel("FROM:       ---------");
+        label4f = new JLabel("POSITION:   ---------");
+        label4b = new JLabel("TO:         ---------");
+        label4g = new JLabel("START TIME: ---------");
+        label4c = new JLabel("HEIGHT:     ---------");
+        label4d = new JLabel("SPEED:      ---------");
         label4e = new JLabel("PROGRESS BAR: ");
 
         progressBar = new JProgressBar();
         progressBar.setValue(0);
-        progressBar.setBounds(20,270,200,25);
+        progressBar.setBounds(20,260,200,25);
         progressBar.setStringPainted(true);
         progressBar.setForeground(Color.white);
+        progressBar.setFont(new Font("MV Boli", Font.PLAIN, 13));
 
-        label4a.setBounds(20,30,200,50);
-        label4b.setBounds(20,80,200,50);
-        label4c.setBounds(20,130,200,50);
-        label4d.setBounds(20,180,200,50);
-        label4e.setBounds(20,230,200,50);
+
+        label4f.setBounds(20,0,200,40);
+        label4a.setBounds(20,35,200,40);
+        label4b.setBounds(20,70,200,40);
+        label4g.setBounds(20,105,200,40);
+        label4c.setBounds(20,140,200,40);
+        label4d.setBounds(20,175,200,40);
+        label4e.setBounds(20,225,200,40);
 
         label4a.setForeground(Color.white);
+        label4f.setForeground(Color.white);
         label4b.setForeground(Color.white);
         label4c.setForeground(Color.white);
         label4d.setForeground(Color.white);
         label4e.setForeground(Color.white);
+        label4g.setForeground(Color.white);
 
         label4a.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        label4f.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4b.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4c.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4d.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label4e.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        label4g.setFont(new Font("MV Boli", Font.PLAIN, 13));
 
         label4.setBackground(new Color(57,75,85,255));
         label4.setOpaque(true);
@@ -163,6 +176,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label4.add(label4c);
         label4.add(label4d);
         label4.add(label4e);
+        label4.add(label4f);
+        label4.add(label4g);
         label4.add(progressBar);
 
         button1 = new JButton("ADD OBJECT");
@@ -183,6 +198,17 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         button3.addActionListener(this);
         button4.addActionListener(this);
 
+        button8 = new JButton("ADD POINT");
+        button9 = new JButton("REMOVE POINT");
+        button8.setEnabled(false);
+        button9.setEnabled(false);
+
+        button8.setBounds(10, 290,110,40);
+        button9.setBounds(120, 290,110,40);
+
+        button8.addActionListener(this);
+        button9.addActionListener(this);
+
         panel1.add(label1);
         panel3.add(comboBox);
         panel3.add(label4);
@@ -190,6 +216,8 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         panel3.add(button2);
         panel3.add(button3);
         panel3.add(button4);
+        label4.add(button8);
+        label4.add(button9);
         panel4.add(label3);
         int length = String.valueOf((int)radar.maxFlightTime()).length();
         System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
@@ -257,7 +285,10 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             }
         }, delay, period);
     }
+
+
     public void updateText(){
+
         if(selectedItem != 0) {
             pinList.clear();
             label4a.setText("FROM: X: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getX() + " Y: " + radar.ships.get(selectedItem - 1).airPath.flightPath.get(0).getStartPoint().getY());
@@ -265,6 +296,9 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             label4c.setText("HEIGHT: " + radar.ships.get(selectedItem - 1).getCurrentHeight());
             label4d.setText("SPEED: " + radar.ships.get(selectedItem - 1).getCurrentSpeed());
             label4e.setText("PROGRESS BAR: ");
+            label4f.setText("POSITION X: " + (int)radar.ships.get(selectedItem-1).getX() + " Y: " + (int)radar.ships.get(selectedItem-1).getY());
+            label4g.setText("START TIME: " + (int)radar.ships.get(selectedItem-1).getStartTime());
+
             double progress = ((radar.getTime()-radar.ships.get(selectedItem-1).getStartTime())/radar.ships.get(selectedItem-1).getFlightTime())*100;
             System.out.println(progress);
             if (progress <= 0) {
@@ -285,6 +319,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                     pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
                     pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
                 }
+                if(radar.ships.get(selectedItem - 1).airPath.flightPath.size() == 1)
+                {
+                    System.out.println("jeden section!!!!");
+                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
+                }
+
                 pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
                 pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
 
@@ -292,10 +333,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         }
         else
         {
-            label4a.setText("FROM:   ---------");
-            label4b.setText("TO:     ---------");
-            label4c.setText("HEIGHT: ---------");
-            label4d.setText("SPEED:  ---------");
+            label4a.setText("FROM:       ---------");
+            label4f.setText("POSITION:   ---------");
+            label4b.setText("TO:         ---------");
+            label4g.setText("START TIME: ---------");
+            label4c.setText("HEIGHT:     ---------");
+            label4d.setText("SPEED:      ---------");
             label4e.setText("PROGRESS BAR: ");
             pinList.clear();
             progressBar.setValue(0);
@@ -385,11 +428,19 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
             selectedItem = comboBox.getSelectedIndex();
+            if(selectedItem == 0){
+                button8.setEnabled(false);
+                button9.setEnabled(false);
+            }
+            else{
+                button8.setEnabled(true);
+                button9.setEnabled(true);
+            }
+
             updateMap();
         }
         if(e.getSource()==button1){
@@ -506,6 +557,33 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                 slider.setEnabled(false);
             }
         }
+
+        if(e.getSource()==button8){
+            String newData = JOptionPane.showInputDialog("x y height speed\n example: 300 200 2000 5");
+            String[] newDataArray = newData.split(" ");
+
+            double x0 = Double.parseDouble(newDataArray[0]);
+            double y0 = Double.parseDouble(newDataArray[1]);
+            double height = Double.parseDouble(newDataArray[2]);
+            double speed = Double.parseDouble(newDataArray[3]);
+            Point p = new Point(x0, y0);
+            radar.ships.get(selectedItem-1).airPath.addPoint(p, height, speed);
+            radar.ships.get(selectedItem-1).setFlightTime();
+            updateMap();
+
+
+        }
+        if(e.getSource()==button9){
+            System.out.println("PRZED: " + radar.ships.get(selectedItem-1).airPath.toString());
+            String someText = radar.ships.get(selectedItem-1).airPath.showPath();
+            String index = JOptionPane.showInputDialog(someText);
+            radar.ships.get(selectedItem-1).airPath.removePoint(Integer.parseInt(index));
+            radar.ships.get(selectedItem-1).setFlightTime();
+            updateMap();
+            System.out.println("PO: " + radar.ships.get(selectedItem-1).airPath.toString());
+        }
+
+
 
     }
 
