@@ -398,7 +398,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                     continue;
                 }
                 else{
-                    JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + radar.ships.get(i).getX() + " " + radar.ships.get(i).getY() + " " + radar.ships.get(i).getCurrentHeight() + " collides with " + radar.staticObjects.get(k).getType()+ " " + radar.staticObjects.get(k).getX() + " " + radar.staticObjects.get(k).getY() + " " + radar.staticObjects.get(k).getHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + (int)radar.ships.get(i).getX() + " " + (int)radar.ships.get(i).getY() + " " + (int)radar.ships.get(i).getCurrentHeight() + " collides with " + radar.staticObjects.get(k).getType()+ " " + (int)radar.staticObjects.get(k).getX() + " " + (int)radar.staticObjects.get(k).getY() + " " + (int)radar.staticObjects.get(k).getHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                         continue;
                     }
                     else{
-                        JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + radar.ships.get(i).getX() + " " + radar.ships.get(i).getY() + " " + radar.ships.get(i).getCurrentHeight() + " collides with " + radar.ships.get(k).getName()+ " " + radar.ships.get(k).getX() + " " + radar.ships.get(k).getY() + " " + radar.ships.get(k).getCurrentHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "DANGER! " + radar.ships.get(i).getName() + " " + (int)radar.ships.get(i).getX() + " " + (int)radar.ships.get(i).getY() + " " + (int)radar.ships.get(i).getCurrentHeight() + " collides with " + radar.ships.get(k).getName()+ " " + (int)radar.ships.get(k).getX() + " " + (int)radar.ships.get(k).getY() + " " + (int)radar.ships.get(k).getCurrentHeight(), "Warning", JOptionPane.WARNING_MESSAGE);
                     }
                 }
 

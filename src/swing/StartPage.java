@@ -121,7 +121,7 @@ public class StartPage extends JFrame implements ActionListener {
 
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
-                // TODO: Wyswietlic komunikat o niepowodzeniu wczytywania pliku
+                System.out.println("ERROR - UNABLE TO READ AIRSHIPS");
             }
         }
         if (e.getSource() == button3) {
@@ -139,6 +139,7 @@ public class StartPage extends JFrame implements ActionListener {
 
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
+                System.out.println("ERROR - UNABLE TO READ STATIC OBJECTS");
             }
         }
         if (e.getSource() == button4) {
