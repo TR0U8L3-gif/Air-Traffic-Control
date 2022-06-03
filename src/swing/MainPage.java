@@ -21,45 +21,59 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MyFrame extends JFrame implements ActionListener, ChangeListener {
+public class MainPage extends JFrame implements ActionListener, ChangeListener {
 
+    /*
+    timer - count time
+    label2 - input map image
+    label3 - show time
+    comboBox - select airships to see more details
+    progressBar - show progress of airship's path
+    label4a - FROM:
+    label4b - TO:
+    label4c - HEIGHT:
+    label4d - SPEED:
+    label4e - PROGRESS BAR:
+    label4f - POSITION:
+    label4g - START TIME:
+    button1 - add tree/building
+    button2 - remove tree/building
+    button3 - add airships
+    button4 - remove airship
+    button5 - reset
+    button6 - start timer
+    button7 - stop timer
+    button8 - add point
+    button9 - remove point
+    delay, period - timer
+    timerStart - enable/disable timer
+    panel1 - title
+    panel2 - map, airships, static objects
+    panel3 - more details, buttons
+    panel4 - credits
+    labelList - list of elements in panel2
+    pinList - list of path's points
+     */
+    java.util.Timer timer;
     public static JLabel label3;
     JComboBox comboBox;
-    JLabel label4a;
-    JLabel label4b;
-    JLabel label4c;
-    JLabel label4d;
-    JLabel label4e;
-    JLabel label4f;
-    JLabel label4g;
     JProgressBar progressBar;
-    JButton button1;
-    JButton button2;
-    JButton button3;
-    JButton button4;
-    JButton button5;
+    JLabel label4a, label4b, label4c, label4d, label4e, label4f, label4g;
+    JButton button1, button2, button3, button4, button5, button6, button7, button8, button9;
     JSlider slider;
-    JButton button6;
-    JButton button7;
-    JButton button8;
-    JButton button9;
-    java.util.Timer timer;
-    int delay;
-    int period;
+    int delay, period, selectedItem;
     boolean timerStart = false;
-    int selectedItem;
-
     Radar radar;
-    public JPanel panel2;
-    public JPanel panel3;
+    public JPanel panel1, panel2, panel3, panel4;
     public JLabel label2;
-    JPanel panel4;
 
     ArrayList<JLabel> labelList = new ArrayList<JLabel>();
     ArrayList<JLabel> pinList = new ArrayList<JLabel>();
 
 
-    public MyFrame(Radar radar) {
+    public MainPage(Radar radar) {
+
+        //set values of MainPage
 
         this.radar = radar;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +82,10 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         this.setResizable(false);
         this.setTitle("Air Traffic Control");
         this.setLocationRelativeTo(null);
-        JPanel panel1 = new JPanel();
+
+        //create, set values of panels
+
+        panel1 = new JPanel();
         panel2 = new JPanel();
         panel3 = new JPanel();
         panel4 = new JPanel();
@@ -88,6 +105,13 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         panel3.setPreferredSize(new Dimension(400,600));
         panel4.setPreferredSize(new Dimension(900,40));
 
+        //create, set values of labels
+
+        JLabel label = new JLabel("");
+        label.setFont(new Font("MV Boli", Font.PLAIN, 20));
+        label.setForeground(Color.white);
+        label.setBounds(916,140, 80,26);
+
         JLabel label1 = new JLabel();
         label1.setText("AIR TRAFFIC CONTROL");
         label1.setForeground(Color.white);
@@ -100,29 +124,17 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
 
-        panel1.add(label3);
-
-        button5 = new JButton("RESET");
-        panel4.add(button5);
-        button5.setBounds(10,6,80,25);
-        button5.addActionListener(this);
-
         label2 = new JLabel(new ImageIcon("src/swing/img/grid.png"));
         label2.setBounds(0,0,600,600);
 
-        JLabel label3 = new JLabel();
-        label3.setText("Authors: J.Rydzewski, R.Sienkiewicz, A.Stefanowski");
-        label3.setForeground(Color.white);
-        label3.setFont(new Font("MV Boli", Font.PLAIN, 13));
-        label3.setBounds(630,5,400,30);
 
-        comboBox = new JComboBox(radar.ships.toArray());
-        comboBox.insertItemAt("SELECT AIRSHIP", 0);
-        comboBox.setSelectedIndex(0);
-        comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
-        comboBox.addActionListener(this);
-        comboBox.setBounds(30,30,250,25);
-        System.out.println(comboBox.getItemCount());
+        JLabel label5 = new JLabel();
+        label5.setText("Authors: J.Rydzewski, R.Sienkiewicz, A.Stefanowski");
+        label5.setForeground(Color.white);
+        label5.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        label5.setBounds(630,5,400,30);
+
+
 
         JLabel label4 = new JLabel();
         label4.setLayout(null);
@@ -134,14 +146,6 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label4c = new JLabel("HEIGHT:     ---------");
         label4d = new JLabel("SPEED:      ---------");
         label4e = new JLabel("PROGRESS BAR: ");
-
-        progressBar = new JProgressBar();
-        progressBar.setValue(0);
-        progressBar.setBounds(20,260,200,25);
-        progressBar.setStringPainted(true);
-        progressBar.setForeground(Color.white);
-        progressBar.setFont(new Font("MV Boli", Font.PLAIN, 13));
-
 
         label4f.setBounds(20,0,200,40);
         label4a.setBounds(20,35,200,40);
@@ -171,14 +175,26 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         label4.setOpaque(true);
         label4.setBounds(30,75,240,350);
 
-        label4.add(label4a);
-        label4.add(label4b);
-        label4.add(label4c);
-        label4.add(label4d);
-        label4.add(label4e);
-        label4.add(label4f);
-        label4.add(label4g);
-        label4.add(progressBar);
+
+        //create, set values of comboBox
+
+        comboBox = new JComboBox(radar.ships.toArray());
+        comboBox.insertItemAt("SELECT AIRSHIP", 0);
+        comboBox.setSelectedIndex(0);
+        comboBox.setFont(new Font("MV Boli", Font.PLAIN, 13));
+        comboBox.addActionListener(this);
+        comboBox.setBounds(30,30,250,25);
+
+        //create, set values of progressBar
+
+        progressBar = new JProgressBar();
+        progressBar.setValue(0);
+        progressBar.setBounds(20,260,200,25);
+        progressBar.setStringPainted(true);
+        progressBar.setForeground(Color.white);
+        progressBar.setFont(new Font("MV Boli", Font.PLAIN, 13));
+
+        //create, set values of buttons
 
         button1 = new JButton("ADD OBJECT");
         button2 = new JButton("REMOVE OBJECT");
@@ -198,6 +214,17 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         button3.addActionListener(this);
         button4.addActionListener(this);
 
+        button5 = new JButton("RESET");
+        button5.setBounds(10,6,80,25);
+        button5.addActionListener(this);
+
+        button6 = new JButton("START");
+        button7 = new JButton("STOP");
+        button6.setBounds(900,75,80,30);
+        button7.setBounds(900,105,80,30);
+        button7.addActionListener(this);
+        button6.addActionListener(this);
+
         button8 = new JButton("ADD POINT");
         button9 = new JButton("REMOVE POINT");
         button8.setEnabled(false);
@@ -209,20 +236,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         button8.addActionListener(this);
         button9.addActionListener(this);
 
-        panel1.add(label1);
-        panel3.add(comboBox);
-        panel3.add(label4);
-        panel3.add(button1);
-        panel3.add(button2);
-        panel3.add(button3);
-        panel3.add(button4);
-        label4.add(button8);
-        label4.add(button9);
-        panel4.add(label3);
+        //create, set values of slider
+
         int length = String.valueOf((int)radar.maxFlightTime()).length();
         System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
+
         slider = new JSlider(0,(int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)),0);
-        this.add(slider);
         slider.setBounds(900,180,75,400);
         slider.setOrientation(SwingConstants.VERTICAL);
         slider.setMinorTickSpacing(100);
@@ -234,34 +253,52 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         slider.setForeground(Color.white);
         slider.addChangeListener(this);
 
-        button6 = new JButton("START");
-        button7 = new JButton("STOP");
-        button6.setBounds(900,75,80,30);
-        button7.setBounds(900,105,80,30);
-        this.add(button6);
-        this.add(button7);
-        button7.addActionListener(this);
-        button6.addActionListener(this);
-
-        JLabel label = new JLabel("");
-        label.setFont(new Font("MV Boli", Font.PLAIN, 20));
-        label.setForeground(Color.white);
-        label.setBounds(916,140, 80,26);
-        this.add(label);
-
         updateMap();
+
+        // create timer
 
         delay = 10;
         period = 40;
         timer = new Timer();
         timer();
 
+        // add elements to program
+
+        label4.add(label4a);
+        label4.add(label4b);
+        label4.add(label4c);
+        label4.add(label4d);
+        label4.add(label4e);
+        label4.add(label4f);
+        label4.add(label4g);
+        label4.add(progressBar);
+        label4.add(button8);
+        label4.add(button9);
+
+        panel1.add(label3);
+        panel1.add(label1);
+        panel3.add(comboBox);
+        panel3.add(label4);
+        panel3.add(button1);
+        panel3.add(button2);
+        panel3.add(button3);
+        panel3.add(button4);
+        panel4.add(button5);
+        panel4.add(label5);
+
+        this.add(slider);
+        this.add(button6);
+        this.add(button7);
+        this.add(label);
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.CENTER);
         this.add(panel3, BorderLayout.EAST);
         this.add(panel4, BorderLayout.SOUTH);
 
     }
+
+    //create, set timer
+
     public void timer()
     {
         double count[] = {radar.getTime()};
@@ -274,7 +311,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
                     count[0] = radar.getTime();
                     count[0]+= 0.25;
                     radar.setTime(count[0]);
-                    MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+                    MainPage.label3.setText("TIME: " + Double.toString(radar.time));
                     for (int i = 0; i < radar.ships.size(); i++) {
                         radar.ships.get(i).move(radar.getTime());
                     }
@@ -286,6 +323,7 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
         }, delay, period);
     }
 
+    // create function to updateText after any change
 
     public void updateText(){
 
@@ -344,6 +382,9 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
             progressBar.setValue(0);
         }
     }
+
+    //create function to updateMap after any change
+
     public void updateMap()
     {
         updateText();
@@ -423,11 +464,17 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
         this.setVisible(true);
     }
+
+    //create function to updateSlider after any change
+
     public void updateSlider(){
         int length = String.valueOf((int)radar.maxFlightTime()).length();
         System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
         slider.setMaximum((int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)));
     }
+
+    //interactive program
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox){
@@ -588,10 +635,12 @@ public class MyFrame extends JFrame implements ActionListener, ChangeListener {
 
     }
 
+    //real time of slider
+
     @Override
     public void stateChanged(ChangeEvent e) {
         radar.setTime(slider.getValue());
-        MyFrame.label3.setText("TIME: " + Double.toString(radar.time));
+        MainPage.label3.setText("TIME: " + Double.toString(radar.time));
         for (int i = 0; i < radar.ships.size(); i++) {
             radar.ships.get(i).move(radar.getTime());
         }

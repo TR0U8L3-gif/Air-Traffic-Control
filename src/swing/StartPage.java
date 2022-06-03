@@ -104,7 +104,7 @@ public class StartPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
             this.dispose();
-            new MyFrame(this.radar);
+            new MainPage(this.radar);
         }
         if (e.getSource() == button2) {
             fileChooser = new JFileChooser();

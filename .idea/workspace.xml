@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="fix removing ships">
-      <change afterPath="$PROJECT_DIR$/src/tests/PathTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/RadarTest.java" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="junit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AirTrafficControl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AirTrafficControl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swing/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/StartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +38,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/airship/Balloon.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/swing/StartPage.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/swing/MyFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/swing/MainPage.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/distance/Point.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/distance/Path.java" root0="FORCE_HIGHLIGHTING" />
@@ -155,7 +152,20 @@
       <recent name="swing" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PathTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="AirTrafficControl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PathTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AirTrafficControl" />
       <extension name="coverage">
@@ -218,29 +228,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RadarTest.isStaticObjectsRenderingCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AirTrafficControl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RadarTest" />
-      <option name="METHOD_NAME" value="isStaticObjectsRenderingCorrect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PathTest" />
         <item itemvalue="JUnit.PathTest.addPoint" />
         <item itemvalue="JUnit.PathTest.removeSection" />
         <item itemvalue="JUnit.RadarTest" />
-        <item itemvalue="JUnit.RadarTest.isStaticObjectsRenderingCorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +261,12 @@
       <workItem from="1652193534127" duration="168000" />
       <workItem from="1652209153322" duration="48000" />
       <workItem from="1652269381886" duration="806000" />
-      <workItem from="1653475275137" duration="12515000" />
+      <workItem from="1653475275137" duration="12651000" />
+      <workItem from="1653503758945" duration="565000" />
+      <workItem from="1654072686719" duration="82000" />
+      <workItem from="1654072806909" duration="36000" />
+      <workItem from="1654076036684" duration="261000" />
+      <workItem from="1654251731099" duration="2988000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -367,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653485261765</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="junit tests">
+      <created>1653488116925</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653488116925</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +423,8 @@
     <MESSAGE value="fixed pins, fixed adding ships" />
     <MESSAGE value="new buttons + add/remove path points" />
     <MESSAGE value="fix removing ships" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix removing ships" />
+    <MESSAGE value="junit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="junit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
