@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PathTest {
 
+//  checking if section is removed correctly
     @Test
     void removeSection() {
         Path newPath = new Path();
@@ -26,9 +27,9 @@ class PathTest {
         int size = newPath.flightPath.size();
         newPath.removeSection(0);
         assertEquals(6, size-1);
-
     }
 
+//  checking if point is added to path correctly
     @Test
     void addPoint() {
         Path newPath = new Path();

@@ -49,7 +49,6 @@ public class AirShip {
     public double getHeight() { return this.hitbox.getH(); }
     public double getRadius() { return this.hitbox.getR(); }
     public String getName() { return this.name; }
-    public void setName(String name) { this.name = name; }
     public void move(double time)
     {
         System.out.println("=================================");

@@ -19,20 +19,24 @@ public class Cylinder {
 		this.r = r;
 		this.h = h;
 	}
+//	get radius value
 	public double getR()
 	{
 		return this.r;
 	}
+//	get height value
 	public double getH()
 	{
 		return this.h;
 	}
+//	set radius value
 	public void setR(double r) {
 		if(r < 0) {
 			r*=-1;
 		}
 		this.r = r;
 	}
+//	set height value
 	public void setH(double h) {
 		if(h < 0) {
 			h*=-1;

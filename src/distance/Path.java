@@ -74,14 +74,6 @@ public class Path {
 		}
 		return "removed";
 	}
-	public String toString() {
-		String msg = "flight path:\n";
-		for(int i = 0; i < flightPath.size(); i++) {
-			msg += flightPath.get(i).toString();
-		}
-		msg += "\n";
-		return msg;
-	}
 	public String showPath() {
 		String msg = "flight path:\n";
 		for(int i = 0; i < flightPath.size(); i++) {
@@ -90,6 +82,14 @@ public class Path {
 			{
 				msg += (i+2) + ") " + flightPath.get(i).getEndPoint().toString();
 			}
+		}
+		msg += "\n";
+		return msg;
+	}
+	public String toString() {
+		String msg = "flight path:\n";
+		for(int i = 0; i < flightPath.size(); i++) {
+			msg += flightPath.get(i).toString();
 		}
 		msg += "\n";
 		return msg;

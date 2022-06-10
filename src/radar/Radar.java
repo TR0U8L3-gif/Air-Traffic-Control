@@ -10,6 +10,7 @@ public class Radar {
     public double time = 0;
     public List<StaticObject> staticObjects = new ArrayList<>();
     public List<AirShip> ships = new ArrayList<>();
+//  distance from the edge of the map
     private int offset = 30;
     public void setTime(double time) {
         this.time = time;
@@ -241,6 +242,7 @@ public class Radar {
         this.ships.add(s);
     }
 
+// checking if flying object is going to collide witch other ship
     public boolean isSafeAirShip(AirShip s, AirShip r) {
         double heightDiff = Math.abs(s.getCurrentHeight() - r.getCurrentHeight());
         double radiusDiff = Math.abs(s.getRadius() + r.getRadius());
@@ -257,6 +259,7 @@ public class Radar {
 
     }
 
+// checking if flying object is going to collide witch static object
     public boolean isSafeStaticObject(AirShip s, StaticObject r) {
         double heightDiff = Math.abs(s.getCurrentHeight() - r.getHeight());
         double radiusDiff = Math.abs(s.getRadius() + r.getRadius());
@@ -270,6 +273,7 @@ public class Radar {
             return true;
         }
     }
+
     public double maxFlightTime ()
     {
         if(ships.size() == 0)
@@ -287,6 +291,7 @@ public class Radar {
         }
         return maxTime;
     }
+
     public double maxDistance()
     {
         if(ships.size() == 0)

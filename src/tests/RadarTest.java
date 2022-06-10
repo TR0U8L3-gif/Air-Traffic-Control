@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadarTest {
 
+//  checking if flying objects generate correctly
     @org.junit.jupiter.api.Test
     void isShipsRenderingCorrect(){
         Radar newRadar = new Radar();
@@ -14,6 +15,7 @@ class RadarTest {
         assertEquals(4, ships);
 
     }
+//  checking if static objects generate correctly
     @org.junit.jupiter.api.Test
     void isStaticObjectsRenderingCorrect(){
         Radar newRadar = new Radar();
@@ -22,5 +24,4 @@ class RadarTest {
         assertEquals(8, staticObjects);
 
     }
-
 }

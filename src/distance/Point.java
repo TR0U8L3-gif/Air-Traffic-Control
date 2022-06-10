@@ -24,6 +24,7 @@ public class Point {
 		this.x+=x;
 		this.y+=y;
 	}
+//	the function checks if the points have the same x and y values
 	public boolean equals(Object o) {
 		if (o == this) {
             return true;
@@ -38,7 +39,6 @@ public class Point {
         return Double.compare(this.x, p.x) == 0
                 && Double.compare(this.y, p.y) == 0;
     }
-	
 	public String toString()
 	{
 		return "x: " + this.x + " y: " + this.y;

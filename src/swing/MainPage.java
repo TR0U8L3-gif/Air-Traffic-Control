@@ -119,7 +119,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         label1.setBounds(350,0,500,50);
 
         label3 = new JLabel();
-        label3.setText("TIME: " + String.format("%.2f", radar.time));
+        label3.setText("TIME: " + (int)radar.time + "." + Math.round((radar.time*100)%100));
         label3.setBounds(50,0,200,50);
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
@@ -254,8 +254,8 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
 
         // create timer
 
-        delay = 10;
-        period = 40;
+        delay = 16;
+        period = 4;
         timer = new Timer();
         timer();
 
@@ -306,9 +306,9 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
                 if(timerStart)
                 {
                     count[0] = radar.getTime();
-                    count[0]+= 0.25;
+                    count[0]+= 0.0625;
                     radar.setTime(count[0]);
-                    MainPage.label3.setText("TIME: " + Double.toString(radar.time));
+                    label3.setText("TIME: " + (int)radar.time + "." + Math.round((radar.time*100)%100));
                     for (int i = 0; i < radar.ships.size(); i++) {
                         radar.ships.get(i).move(radar.getTime());
                     }
