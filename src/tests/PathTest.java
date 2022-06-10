@@ -1,8 +1,8 @@
 package tests;
 
-import distance.Path;
-import distance.Point;
-import distance.Section;
+import objects.flyingObjects.distance.Path;
+import objects.flyingObjects.distance.Point;
+import objects.flyingObjects.distance.Section;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

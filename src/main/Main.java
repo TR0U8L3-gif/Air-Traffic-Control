@@ -1,8 +1,8 @@
 package main;
 
 import java.util.*;
-import radar.*;
-import swing.*;
+import view.radar.*;
+import view.swing.*;
 
 public class Main {
 
@@ -80,19 +80,19 @@ public class Main {
 
 		/*
          *  // checking if objects generate correctly
-         *   List<StaticObject> staticObjects = new ArrayList<StaticObject>();
+         *   List<StaticObject> objects.staticObjects = new ArrayList<StaticObject>();
          *   Random rand = new Random();
          *   while(true)
          *   {
          *       if(rand.nextInt(2)%2==0)
          *       {
-         *           staticObjects.add(new Tree());
+         *           objects.staticObjects.add(new Tree());
          *       }
          *      else
          *       {
-         *           staticObjects.add(new Building());
+         *           objects.staticObjects.add(new Building());
          *       }
-         *       System.out.println(staticObjects.get(staticObjects.size()-1).toString());
+         *       System.out.println(objects.staticObjects.get(objects.staticObjects.size()-1).toString());
          *       try
          *       {
          *           TimeUnit.SECONDS.sleep(10);
@@ -109,11 +109,11 @@ public class Main {
 
         /*
          *   // testing rendered flying objects position
-         *   radar.renderTestShip();
-         *   radar.renderShips(1);
-         *   radar.renderStaticObjects();
-         *   radar.showShips();
-         *   radar.showStaticObjects();
+         *   view.radar.renderTestShip();
+         *   view.radar.renderShips(1);
+         *   view.radar.renderStaticObjects();
+         *   view.radar.showShips();
+         *   view.radar.showStaticObjects();
          */
 
         Scanner sc = new Scanner(System.in);

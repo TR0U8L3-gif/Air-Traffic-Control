@@ -1,4 +1,4 @@
-package figure;
+package objects.flyingObjects.figure;
 
 public class Cylinder {
 	private double r;

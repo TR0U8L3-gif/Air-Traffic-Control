@@ -1,15 +1,15 @@
-package swing;
+package view.swing;
 
-import airship.AirShip;
-import airship.Balloon;
-import airship.Helicopter;
-import airship.Plane;
-import distance.Path;
-import distance.Point;
-import distance.Section;
-import figure.Cylinder;
-import staticObjects.*;
-import radar.*;
+import objects.flyingObjects.airship.AirShip;
+import objects.flyingObjects.airship.Balloon;
+import objects.flyingObjects.airship.Helicopter;
+import objects.flyingObjects.airship.Plane;
+import objects.flyingObjects.distance.Path;
+import objects.flyingObjects.distance.Point;
+import objects.flyingObjects.distance.Section;
+import objects.flyingObjects.figure.Cylinder;
+import objects.staticObjects.*;
+import view.radar.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -28,7 +28,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
     label2 - input map image
     label3 - show time
     comboBox - select airships to see more details
-    progressBar - show progress of airship's path
+    progressBar - show progress of objects.flyingObjects.airship's path
     label4a - FROM:
     label4b - TO:
     label4c - HEIGHT:
@@ -39,7 +39,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
     button1 - add tree/building
     button2 - remove tree/building
     button3 - add airships
-    button4 - remove airship
+    button4 - remove objects.flyingObjects.airship
     button5 - reset
     button6 - start timer
     button7 - stop timer
@@ -124,7 +124,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
 
-        label2 = new JLabel(new ImageIcon("src/swing/img/grid.png"));
+        label2 = new JLabel(new ImageIcon("src/view/swing/img/grid.png"));
         label2.setBounds(0,0,600,600);
 
 
@@ -347,21 +347,21 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
             for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
 
                 if (i==0){
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
                     pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
                 }
                 else if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
                     pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
                 }
                 if(radar.ships.get(selectedItem - 1).airPath.flightPath.size() == 1)
                 {
                     System.out.println("jeden section!!!!");
-                    pinList.add(new JLabel(new ImageIcon("src/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
                     pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
                 }
 
-                pinList.add(new JLabel(new ImageIcon("src/swing/img/redPin.png")));
+                pinList.add(new JLabel(new ImageIcon("src/view/swing/img/redPin.png")));
                 pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
 
             }
@@ -391,22 +391,22 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         {
             System.out.println(radar.ships.get(i).getName());
             if (radar.ships.get(i).getName().equals("AirShip")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/ufo.png")));
+                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/ufo.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Balloon")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/balloon.png")));
+                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/balloon.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/helicopter.png")));
+                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/helicopter.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
-                labelList.add(new JLabel(new ImageIcon("src/swing/img/plane.png")));
+                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/plane.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
@@ -414,12 +414,12 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         for (int i =0; i <radar.staticObjects.size(); i++ )
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/img/treeicon.png"));
+                JLabel label = new JLabel(new ImageIcon("src/view/swing/img/treeicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 4* (int)radar.staticObjects.get(i).getRadius(),4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
             else if(radar.staticObjects.get(i).getType().equals("building")){
-                JLabel label = new JLabel(new ImageIcon("src/swing/img/buildingicon.png"));
+                JLabel label = new JLabel(new ImageIcon("src/view/swing/img/buildingicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,4* (int)radar.staticObjects.get(i).getRadius(), 4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
@@ -519,7 +519,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
             double R = Double.parseDouble(newDataArray[4]);
             double H = Double.parseDouble(newDataArray[5]);
             Cylinder hitbox = new Cylinder(R, H);
-            distance.Point start = new distance.Point(x0, y0);
+            objects.flyingObjects.distance.Point start = new objects.flyingObjects.distance.Point(x0, y0);
             Path path = new Path();
 
             int n = Integer.parseInt(newDataArray[6]);
@@ -529,7 +529,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
                 double s = Double.parseDouble(newDataArray[6+i*3]);
                 double h = Double.parseDouble(newDataArray[6+i*4]);
 
-                distance.Point end = new Point(x, y);
+                objects.flyingObjects.distance.Point end = new Point(x, y);
 
                 Section section = new Section(start, end);
                 section.setSpeed(s);

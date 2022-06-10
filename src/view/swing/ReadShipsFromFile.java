@@ -1,13 +1,13 @@
-package swing;
+package view.swing;
 
-import airship.AirShip;
-import airship.Balloon;
-import airship.Helicopter;
-import airship.Plane;
-import distance.Path;
-import distance.Point;
-import distance.Section;
-import figure.Cylinder;
+import objects.flyingObjects.airship.AirShip;
+import objects.flyingObjects.airship.Balloon;
+import objects.flyingObjects.airship.Helicopter;
+import objects.flyingObjects.airship.Plane;
+import objects.flyingObjects.distance.Path;
+import objects.flyingObjects.distance.Point;
+import objects.flyingObjects.distance.Section;
+import objects.flyingObjects.figure.Cylinder;
 
 import java.util.ArrayList;
 import java.util.List;

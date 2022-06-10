@@ -1,7 +1,7 @@
-package airship;
+package objects.flyingObjects.airship;
 
-import figure.*;
-import distance.*;
+import objects.flyingObjects.figure.*;
+import objects.flyingObjects.distance.*;
 
 public class AirShip {
     protected String name = "AirShip";
@@ -98,13 +98,13 @@ public class AirShip {
                 double speed = this.airPath.flightPath.get(pathIndex).getSpeed();
                 double distance = Math.sqrt(Math.pow(end.getY() - start.getY(), 2) + Math.pow(end.getX() - start.getX(), 2));
                 double pathTime = distance / speed;
-                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (this.airPath.flightPath.size()-1)+ "] speed: " + speed + " distance of section: " + distance + " total time: " + pathTime);
+                System.out.println( this.name + " Path index: [" + pathIndex + "/" + (this.airPath.flightPath.size()-1)+ "] speed: " + speed + " objects.flyingObjects.distance of section: " + distance + " total time: " + pathTime);
                 if(remainingTime - pathTime <= 0)
                 {
 
                     System.out.println("remainingTime: " + remainingTime);
                     double r = speed * remainingTime;
-                    System.out.println("distance to go: " + r);
+                    System.out.println("objects.flyingObjects.distance to go: " + r);
                     if(start.getX() != end.getX())
                     {
                         //line equation y=ax+b

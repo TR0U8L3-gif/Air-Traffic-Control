@@ -1,16 +1,16 @@
-package radar;
+package view.radar;
 
 import java.util.*;
-import airship.*;
-import distance.*;
-import figure.Cylinder;
-import staticObjects.*;
+import objects.flyingObjects.airship.*;
+import objects.flyingObjects.distance.*;
+import objects.flyingObjects.figure.Cylinder;
+import objects.staticObjects.*;
 
 public class Radar {
     public double time = 0;
     public List<StaticObject> staticObjects = new ArrayList<>();
     public List<AirShip> ships = new ArrayList<>();
-//  distance from the edge of the map
+//  objects.flyingObjects.distance from the edge of the map
     private int offset = 30;
     public void setTime(double time) {
         this.time = time;
@@ -30,8 +30,8 @@ public class Radar {
         for (int i = 0; i < staticObjects.size(); i++) {
             msg += (i + 1) + ") " + staticObjects.get(i).toString() + "\n";
             System.out.println(staticObjects.get(i));
-            //System.out.println(staticObjects.get(i).getX());
-            //System.out.println(staticObjects.get(i).getY());
+            //System.out.println(objects.staticObjects.get(i).getX());
+            //System.out.println(objects.staticObjects.get(i).getY());
         }
         return msg;
     }

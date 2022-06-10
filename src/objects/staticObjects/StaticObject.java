@@ -1,6 +1,6 @@
-package staticObjects;
+package objects.staticObjects;
 
-import figure.Cylinder;
+import objects.flyingObjects.figure.Cylinder;
 
 public abstract class StaticObject
 {

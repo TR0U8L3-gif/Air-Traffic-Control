@@ -1,7 +1,7 @@
-package airship;
+package objects.flyingObjects.airship;
 
-import distance.Path;
-import figure.Cylinder;
+import objects.flyingObjects.distance.Path;
+import objects.flyingObjects.figure.Cylinder;
 
 public class Plane extends AirShip{
     public Plane(Cylinder hitbox, Path airPath) {

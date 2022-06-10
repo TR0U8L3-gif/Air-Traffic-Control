@@ -1,4 +1,4 @@
-package distance;
+package objects.flyingObjects.distance;
 
 import java.util.*;
 

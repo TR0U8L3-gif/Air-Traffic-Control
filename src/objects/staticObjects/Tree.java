@@ -1,6 +1,6 @@
-package staticObjects;
+package objects.staticObjects;
 
-import figure.Cylinder;
+import objects.flyingObjects.figure.Cylinder;
 import java.util.Random;
 
 public class Tree extends StaticObject {

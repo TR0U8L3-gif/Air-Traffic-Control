@@ -1,6 +1,6 @@
 package tests;
 
-import radar.Radar;
+import view.radar.Radar;
 
 import static org.junit.jupiter.api.Assertions.*;
 

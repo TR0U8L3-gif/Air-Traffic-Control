@@ -1,7 +1,7 @@
 # Air Traffic Control
 This repository is our second project for the object-oriented programming at the Bialystok University of Technology
 ## quick code overview: 
- We have a radar that displays a map with non-moving objects, and we can place various types of aircraft on the radar (planes, helicopters, balloons) 
+ We have a view.radar that displays a map with non-moving objects, and we can place various types of aircraft on the view.radar (planes, helicopters, balloons) 
  Each aircraft has its own route (composed of sections with constant flight parameters: altitude, direction or speed)
 
 ### Instructions: 

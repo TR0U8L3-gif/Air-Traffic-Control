@@ -1,8 +1,8 @@
-package swing;
+package view.swing;
 
-import airship.AirShip;
-import radar.*;
-import staticObjects.StaticObject;
+import objects.flyingObjects.airship.AirShip;
+import view.radar.*;
+import objects.staticObjects.StaticObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -84,8 +84,8 @@ public class StartPage extends JFrame implements ActionListener {
         button5.setBounds(355, 350, 250, 75);
         button5.addActionListener(this);
 
-        button6 = new JButton(new ImageIcon("src/swing/img/infoIcon.png"));
-        button7 = new JButton(new ImageIcon("src/swing/img/infoIcon.png"));
+        button6 = new JButton(new ImageIcon("src/view.swing/img/infoIcon.png"));
+        button7 = new JButton(new ImageIcon("src/view.swing/img/infoIcon.png"));
         button6.setBounds(50, 260, 25, 25);
         button7.setBounds(50, 360, 25, 25);
 

@@ -1,9 +1,9 @@
-package swing;
+package view.swing;
 
-import figure.Cylinder;
-import staticObjects.Building;
-import staticObjects.StaticObject;
-import staticObjects.Tree;
+import objects.flyingObjects.figure.Cylinder;
+import objects.staticObjects.Building;
+import objects.staticObjects.StaticObject;
+import objects.staticObjects.Tree;
 
 import java.io.File;
 import java.io.FileNotFoundException;
