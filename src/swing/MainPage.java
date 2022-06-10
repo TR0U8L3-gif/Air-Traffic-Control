@@ -134,8 +134,6 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         label5.setFont(new Font("MV Boli", Font.PLAIN, 13));
         label5.setBounds(630,5,400,30);
 
-
-
         JLabel label4 = new JLabel();
         label4.setLayout(null);
 
@@ -174,7 +172,6 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         label4.setBackground(new Color(57,75,85,255));
         label4.setOpaque(true);
         label4.setBounds(30,75,240,350);
-
 
         //create, set values of comboBox
 

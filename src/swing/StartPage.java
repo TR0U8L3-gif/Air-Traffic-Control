@@ -13,20 +13,25 @@ import java.io.FileNotFoundException;
 
 public class StartPage extends JFrame implements ActionListener {
 
-    JButton button;
-    JButton button2;
-    JButton button3;
-    JButton button4;
-    JButton button5;
-    JFileChooser fileChooser;
-    JLabel label2;
-    JLabel label3;
-    JButton button6;
-    JButton button7;
+    /*
+    button - continue
+    button2 - select map of airships
+    button3 - select map of static objects
+    button4 - generate map of airships
+    button5 - generate map of static objects
+    button6 - info about the map
+    button7 - info about the static objects
+     */
 
+    JButton button, button2, button3, button4, button5, button6, button7;
+    JLabel label, label2, label3;
+    JFileChooser fileChooser;
     Radar radar;
 
     public StartPage(Radar radar) {
+
+        //set values of StartPage
+
         this.radar = radar;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 700);
@@ -36,29 +41,36 @@ public class StartPage extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(new Color(84, 108, 120, 255));
 
+        //create, set values of labels
 
-        JLabel label = new JLabel("WELCOME TO THE AIR TRAFFIC CONTROL!");
+        label = new JLabel("WELCOME TO THE AIR TRAFFIC CONTROL!");
         label.setBounds(100, 100, 700, 100);
         label.setFont(new Font("MV Boli", Font.BOLD, 30));
         label.setForeground(Color.white);
-
-        button = new JButton("Continue");
-        button.setBounds(300, 500, 300, 100);
-        button.addActionListener(this);
 
         label2 = new JLabel("Selected: NONE");
         label2.setBounds(635, 250, 200, 75);
         label2.setFont(new Font("MV Boli", Font.BOLD, 15));
         label2.setForeground(Color.white);
 
-        button2 = new JButton("Select map of Airships");
-        button2.setBounds(80, 250, 250, 75);
-        button2.addActionListener(this);
-
         label3 = new JLabel("Selected: NONE");
         label3.setBounds(635, 350, 200, 75);
         label3.setFont(new Font("MV Boli", Font.BOLD, 15));
         label3.setForeground(Color.white);
+
+        this.add(label);
+        this.add(label2);
+        this.add(label3);
+
+        //create, set values of buttons
+
+        button = new JButton("Continue");
+        button.setBounds(300, 500, 300, 100);
+        button.addActionListener(this);
+
+        button2 = new JButton("Select map of Airships");
+        button2.setBounds(80, 250, 250, 75);
+        button2.addActionListener(this);
 
         button3 = new JButton("Select map of Static Objects");
         button3.setBounds(80, 350, 250, 75);
@@ -86,19 +98,18 @@ public class StartPage extends JFrame implements ActionListener {
         button6.addActionListener(this);
         button7.addActionListener(this);
 
-        this.add(label);
-        this.add(label2);
         this.add(button);
         this.add(button2);
         this.add(button3);
         this.add(button4);
         this.add(button5);
-        this.add(label3);
         this.add(button6);
         this.add(button7);
 
         this.setVisible(true);
     }
+
+    //interactive program
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -143,7 +154,6 @@ public class StartPage extends JFrame implements ActionListener {
             }
         }
         if (e.getSource() == button4) {
-            //radar.renderShips();
             radar.renderShips();
             button2.setEnabled(false);
             label2.setText("SELECTED: AUTO");
