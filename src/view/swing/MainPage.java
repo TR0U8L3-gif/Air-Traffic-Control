@@ -124,7 +124,7 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         label3.setForeground(Color.white);
         label3.setFont(new Font("MV Boli", Font.BOLD, 20));
 
-        label2 = new JLabel(new ImageIcon("src/view/swing/img/grid.png"));
+        label2 = new JLabel(createImageIcon("img/grid.png"));
         label2.setBounds(0,0,600,600);
 
 
@@ -347,21 +347,21 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
             for (int i = 0; i < radar.ships.get(selectedItem - 1).airPath.flightPath.size(); i++) {
 
                 if (i==0){
-                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(createImageIcon("img/bluePin.png")));
                     pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
                 }
                 else if (i == radar.ships.get(selectedItem - 1).airPath.flightPath.size() - 1) {
-                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(createImageIcon("img/bluePin.png")));
                     pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
                 }
                 if(radar.ships.get(selectedItem - 1).airPath.flightPath.size() == 1)
                 {
                     System.out.println("jeden section!!!!");
-                    pinList.add(new JLabel(new ImageIcon("src/view/swing/img/bluePin.png")));
+                    pinList.add(new JLabel(createImageIcon("img/bluePin.png")));
                     pinList.get(i + 1).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getEndPoint().getY()-45, 30, 30);
                 }
 
-                pinList.add(new JLabel(new ImageIcon("src/view/swing/img/redPin.png")));
+                pinList.add(new JLabel(createImageIcon("img/redPin.png")));
                 pinList.get(i).setBounds((int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getX()-30, (int) radar.ships.get(selectedItem - 1).airPath.flightPath.get(i).getStartPoint().getY()-45, 30, 30);
 
             }
@@ -391,22 +391,22 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         {
             System.out.println(radar.ships.get(i).getName());
             if (radar.ships.get(i).getName().equals("AirShip")){
-                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/ufo.png")));
+                labelList.add(new JLabel(createImageIcon("img/ufo.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Balloon")){
-                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/balloon.png")));
+                labelList.add(new JLabel(createImageIcon("img/balloon.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Helicopter")){
-                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/helicopter.png")));
+                labelList.add(new JLabel(createImageIcon("img/helicopter.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
             else if (radar.ships.get(i).getName().equals("Plane")){
-                labelList.add(new JLabel(new ImageIcon("src/view/swing/img/plane.png")));
+                labelList.add(new JLabel(createImageIcon("img/plane.png")));
                 labelList.get(i).setBounds((int)radar.ships.get(i).getX()-45, (int)radar.ships.get(i).getY()-50, 3* (int)radar.ships.get(i).getRadius(),3* (int)radar.ships.get(i).getRadius());
                 panel2.add(labelList.get(i));
             }
@@ -414,12 +414,12 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         for (int i =0; i <radar.staticObjects.size(); i++ )
         {
             if (radar.staticObjects.get(i).getType().equals("tree")){
-                JLabel label = new JLabel(new ImageIcon("src/view/swing/img/treeicon.png"));
+                JLabel label = new JLabel(createImageIcon("img/treeicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50, 4* (int)radar.staticObjects.get(i).getRadius(),4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
             else if(radar.staticObjects.get(i).getType().equals("building")){
-                JLabel label = new JLabel(new ImageIcon("src/view/swing/img/buildingicon.png"));
+                JLabel label = new JLabel(createImageIcon("img/buildingicon.png"));
                 label.setBounds(radar.staticObjects.get(i).getX()-50, radar.staticObjects.get(i).getY()-50,4* (int)radar.staticObjects.get(i).getRadius(), 4* (int)radar.staticObjects.get(i).getRadius());
                 panel2.add(label);
             }
@@ -468,6 +468,15 @@ public class MainPage extends JFrame implements ActionListener, ChangeListener {
         int length = String.valueOf((int)radar.maxFlightTime()).length();
         System.out.println(radar.maxFlightTime() + " : " + length + " "+ Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1));
         slider.setMaximum((int)(Math.ceil(radar.maxFlightTime()/Math.pow(10,length-1)) * Math.pow(10,length-1)));
+    }
+    protected ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
     }
 
     //interactive program

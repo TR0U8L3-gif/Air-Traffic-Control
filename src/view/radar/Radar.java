@@ -291,7 +291,6 @@ public class Radar {
         }
         return maxTime;
     }
-
     public double maxDistance()
     {
         if(ships.size() == 0)
@@ -335,8 +334,6 @@ public class Radar {
             return  maxYValue;
         }
     }
-
-
 }
 
 

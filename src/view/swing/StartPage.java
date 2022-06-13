@@ -4,12 +4,15 @@ import objects.flyingObjects.airship.AirShip;
 import view.radar.*;
 import objects.staticObjects.StaticObject;
 
+import javax.imageio.ImageIO;
+import javax.print.DocFlavor;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URL;
 
 public class StartPage extends JFrame implements ActionListener {
 
@@ -84,8 +87,8 @@ public class StartPage extends JFrame implements ActionListener {
         button5.setBounds(355, 350, 250, 75);
         button5.addActionListener(this);
 
-        button6 = new JButton(new ImageIcon("src/view.swing/img/infoIcon.png"));
-        button7 = new JButton(new ImageIcon("src/view.swing/img/infoIcon.png"));
+        button6 = new JButton(createImageIcon("img/infoIcon.png"));
+        button7 = new JButton(createImageIcon("img/infoIcon.png"));
         button6.setBounds(50, 260, 25, 25);
         button7.setBounds(50, 360, 25, 25);
 
@@ -107,6 +110,16 @@ public class StartPage extends JFrame implements ActionListener {
         this.add(button7);
 
         this.setVisible(true);
+    }
+
+    protected ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
     }
 
     //interactive program

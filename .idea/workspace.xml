@@ -1,39 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AirTrafficControl:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="describing functions">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/AirShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/airship/AirShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Balloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/airship/Balloon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/airship/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/airship/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/airship/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/distance/Path.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/distance/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distance/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/distance/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/flyingObjects/figure/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/radar/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/staticObjects/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/StaticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/staticObjects/StaticObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticObjects/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/staticObjects/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ReadObjectsFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/ReadObjectsFromFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/ReadShipsFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/ReadShipsFromFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/StartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/balloon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/balloon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/bluePin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/bluePin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/buildingicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/buildingicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/grid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/helicopter.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/helicopter.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/infoIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/infoIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/plane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/plane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/redPin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/redPin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/treeicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/treeicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/img/ufo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/img/ufo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/textFiles/ships.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/textFiles/ships.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/textFiles/staticobjects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/textFiles/staticobjects.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/PathTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/PathTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/RadarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/RadarTest.java" afterDir="false" />
+    <list default="true" id="a33a1a20-fc84-402c-8614-fe8ec1793de5" name="Changes" comment="little cleaning, file organization">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirTrafficControl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AirTrafficControl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/radar/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/radar/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/swing/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/swing/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swing/StartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,33 +121,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/swing/img" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/rsien/IdeaProjects/Air-Traffic-Control/src/view/swing",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rsien\IdeaProjects\Air-Traffic-Control\src\view\swing" />
       <recent name="$PROJECT_DIR$/src/swing/img" />
       <recent name="$PROJECT_DIR$/src/swing" />
       <recent name="C:\Users\alber\eclipse-workspace\Air-Traffic-Control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rsien\IdeaProjects\Air-Traffic-Control\src\view\swing" />
+      <recent name="C:\Users\rsien\IdeaProjects\Air-Traffic-Control\src\view" />
       <recent name="C:\Users\rsien\IdeaProjects\Air-Traffic-Control\src\swing\textFiles" />
       <recent name="$PROJECT_DIR$/src/swing/buildingicon" />
       <recent name="$PROJECT_DIR$/src/swing/img" />
-      <recent name="C:\Users\rsien\IdeaProjects\Air-Traffic-Control\src\swing\img" />
-      <recent name="$PROJECT_DIR$/src/swing" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -299,6 +272,9 @@
       <workItem from="1654076036684" duration="261000" />
       <workItem from="1654251731099" duration="4089000" />
       <workItem from="1654856753632" duration="795000" />
+      <workItem from="1654867866353" duration="1898000" />
+      <workItem from="1655118700286" duration="409000" />
+      <workItem from="1655119125060" duration="1662000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1651083044866</created>
@@ -419,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654860332333</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="little cleaning, file organization">
+      <created>1654860705723</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1654860705723</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +455,8 @@
     <MESSAGE value="junit tests" />
     <MESSAGE value="rename, add comments" />
     <MESSAGE value="describing functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="describing functions" />
+    <MESSAGE value="little cleaning, file organization" />
+    <option name="LAST_COMMIT_MESSAGE" value="little cleaning, file organization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
